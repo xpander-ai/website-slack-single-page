@@ -1,10 +1,10 @@
 # xpander.ai - Bring Your AI Agents to Slack
 
-The official website for xpander.ai, the platform that enables AI agents to work seamlessly in Slack without infrastructure complexity.
+The website for slack.xpander.ai, part of xpander.ai
 
 ## 🚀 Overview
 
-This repository contains the source code for the xpander.ai website, including:
+This repository contains the source code for the slack.xpander.ai website, including:
 - Landing page with product information
 - Slack agents directory
 - Agent submission system
@@ -90,7 +90,3 @@ Copyright © 2025 xpander.ai. All rights reserved.
 - **Website**: [xpander.ai](https://xpander.ai)
 - **Documentation**: [docs.xpander.ai](https://docs.xpander.ai)
 - **Support**: support@xpander.ai
-
----
-
-Built with ❤️ by the xpander.ai team
