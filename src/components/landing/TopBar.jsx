@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { featureFlags } from '@/config/featureFlags';
 
 export default function TopBar() {
   return (
@@ -30,6 +31,14 @@ export default function TopBar() {
             >
               Slack Agents
             </a>
+            {featureFlags.templatesEnabled && (
+              <a 
+                href="/templates" 
+                className="text-white text-sm font-medium hover:opacity-80 transition-opacity"
+              >
+                Templates
+              </a>
+            )}
             <a 
               href="https://xpander.ai/pricing" 
               className="text-white text-sm font-medium hover:opacity-80 transition-opacity"

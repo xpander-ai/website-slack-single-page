@@ -4,9 +4,12 @@ import Landing from "./Landing";
 import AgentsDirectory from "./AgentsDirectory";
 import AgentDetail from "./AgentDetail";
 import SubmitAgent from "./SubmitAgent";
+import Templates from "./Templates";
+import TemplateDetail from "./TemplateDetail";
 
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation, Navigate } from 'react-router-dom';
 import ScrollToTop from '@/components/ScrollToTop';
+import { featureFlags } from '@/config/featureFlags';
 
 const PAGES = {
     
@@ -14,6 +17,8 @@ const PAGES = {
     AgentsDirectory: AgentsDirectory,
     AgentDetail: AgentDetail,
     SubmitAgent: SubmitAgent,
+    Templates: Templates,
+    TemplateDetail: TemplateDetail,
     
 }
 
@@ -46,6 +51,17 @@ function PagesContent() {
                 <Route path="/agents" element={<AgentsDirectory />} />
                 <Route path="/agents/submit" element={<SubmitAgent />} />
                 <Route path="/agents/:slug" element={<AgentDetail />} />
+                {featureFlags.templatesEnabled ? (
+                    <>
+                        <Route path="/templates" element={<Templates />} />
+                        <Route path="/templates/:slug" element={<TemplateDetail />} />
+                    </>
+                ) : (
+                    <>
+                        <Route path="/templates" element={<Navigate to="/" replace />} />
+                        <Route path="/templates/:slug" element={<Navigate to="/" replace />} />
+                    </>
+                )}
                 
             </Routes>
         </Layout>

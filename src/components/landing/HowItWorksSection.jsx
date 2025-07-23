@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MousePointer, Check, Terminal, Code, Download } from 'lucide-react';
+import { MousePointer, Check, Terminal, Code, Download, ChevronDown } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { featureFlags } from '@/config/featureFlags';
 
 export default function HowItWorksSection() {
     const [activeTab, setActiveTab] = useState('wizard');
+    const [selectedFramework, setSelectedFramework] = useState('agno');
     
     const steps = [
         {
@@ -42,18 +45,73 @@ export default function HowItWorksSection() {
                     {activeTab === 'wizard' ? (
                         <>
                             <p className="text-gray-600">
-                                Click below to create your Slack agent with our prebuilt Serverless Agent Runtime:
+                                Choose your AI framework and start from a pre-configured template:
                             </p>
-                            <a 
-                                href="https://app.xpander.ai/slack_agents/new?templateId=072bb326-d45b-4995-a8e0-458e1e4b6d20" 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="inline-block"
-                            >
-                                <button className="gradient-bg hover:opacity-90 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                                    Click here to import template
-                                </button>
-                            </a>
+                            
+                            {/* Framework Selection */}
+                            <div className="space-y-3">
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium text-gray-700">
+                                        Select AI Framework
+                                    </label>
+                                    <Select
+                                        value={selectedFramework}
+                                        onValueChange={setSelectedFramework}
+                                    >
+                                        <SelectTrigger className="w-full max-w-xs">
+                                            <SelectValue placeholder="Select a framework" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="agno">
+                                                <div className="flex items-center gap-2">
+                                                    <img src="/logos/agno.png" alt="Agno" className="w-4 h-4" />
+                                                    <span>Agno (Available Now)</span>
+                                                </div>
+                                            </SelectItem>
+                                            <SelectItem value="langchain" disabled>
+                                                <div className="flex items-center gap-2">
+                                                    <img src="/logos/langchain-color.png" alt="LangChain" className="w-4 h-4 object-contain" />
+                                                    <span>LangChain (Coming Soon)</span>
+                                                </div>
+                                            </SelectItem>
+                                            <SelectItem value="crewai" disabled>
+                                                <div className="flex items-center gap-2">
+                                                    <img src="/logos/CrewAI Logo.png" alt="CrewAI" className="w-4 h-4 object-contain" />
+                                                    <span>CrewAI (Coming Soon)</span>
+                                                </div>
+                                            </SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                
+                                {/* Action Buttons */}
+                                <div className="space-y-3">
+                                    {selectedFramework === 'agno' && (
+                                        <div>
+                                            <a 
+                                                href="https://app.xpander.ai/slack_agents/new?templateId=072bb326-d45b-4995-a8e0-458e1e4b6d20" 
+                                                target="_blank" 
+                                                rel="noopener noreferrer"
+                                                className="inline-block"
+                                            >
+                                                <button className="gradient-bg hover:opacity-90 text-white font-medium px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-sm">
+                                                    Click here to start from template
+                                                </button>
+                                            </a>
+                                        </div>
+                                    )}
+                                    {featureFlags.templatesEnabled && (
+                                        <div>
+                                            <a 
+                                                href="/templates" 
+                                                className="text-[#6B4EFF] hover:text-[#6B4EFF]/80 text-sm font-medium underline"
+                                            >
+                                                Browse all templates →
+                                            </a>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                             <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
                                 <p className="text-sm text-gray-600">
                                     <strong>What's included:</strong>
