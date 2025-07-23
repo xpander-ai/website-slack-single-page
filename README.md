@@ -5,6 +5,7 @@ The website for slack.xpander.ai, part of xpander.ai
 ## 🚀 Overview
 
 This repository contains the source code for the slack.xpander.ai website, including:
+
 - Landing page with product information
 - Slack agents directory
 - Agent submission system
@@ -25,15 +26,18 @@ xpander.ai helps you transform any AI agent into a Slack-native application in u
 
 #### 1. Create Your Agent
 Choose from two options:
+
 - **Serverless Agents**: Use pre-configured Agno + OpenAI/Bedrock templates
 - **Custom Code**: Deploy your existing LangChain, CrewAI, or custom agent
 
 #### 2. Install to Slack
+
 - Complete the OAuth flow
 - Select channels for your agent
 - Configure auto-engage rules (optional)
 
 #### 3. Go Live
+
 Your agent is instantly deployed and ready to use in Slack!
 
 ### Key Features
@@ -46,74 +50,9 @@ Your agent is instantly deployed and ready to use in Slack!
 
 ### Learn More
 
-- **Documentation**: [docs.xpander.ai](https://docs.xpander.ai)
-- **Create Your Agent**: [xpander.ai/create](https://xpander.ai/create)
+- **Documentation**: [docs.xpander.ai](https://slack.xpander.ai)
 - **Examples**: Browse our [agent directory](https://slack.xpander.ai/agents)
-
-## 🛠️ Tech Stack
-
-- **Frontend**: React 18 + Vite
-- **Styling**: Tailwind CSS + shadcn/ui
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Forms**: Fillout integration
-- **Hosting**: AWS Amplify
-
-## 📦 Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/xpander-ai/website-slack-single-page.git
-cd website-slack-single-page
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-## 🔧 Development
-
-```bash
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-
-# Run linter
-npm run lint
-```
-
-## 📁 Project Structure
-
-```
-├── public/
-│   ├── api/
-│   │   └── agents.json      # Agents directory data
-│   ├── logos/              # Agent and partner logos
-│   └── ...
-├── src/
-│   ├── components/
-│   │   ├── landing/        # Landing page sections
-│   │   └── ui/            # Reusable UI components
-│   ├── pages/             # Page components
-│   ├── services/          # API services
-│   └── main.jsx          # App entry point
-└── ...
-```
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on:
-- Submitting agents to the directory
-- Reporting issues
-- Proposing enhancements
-
+  
 ### Adding Your Agent
 
 You can add your agent to our directory in two ways:
