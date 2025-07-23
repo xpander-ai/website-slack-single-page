@@ -1,0 +1,149 @@
+# xpander.ai
+
+## What is xpander.ai?
+
+xpander.ai is a platform that transforms any AI agent into a native Slack participant in under an hour. We handle all the complex Slack infrastructure, authentication, and LLM optimization so developers can focus on building AI value instead of wrestling with webhooks, OAuth flows, and rate limits.
+
+## Core Value Propositions
+
+### 1. Smart Engage - Save 80%+ on LLM Costs
+Our lightweight screening model pre-processes all Slack messages and only invokes your expensive AI agent when actually needed. No more burning tokens on "thanks" or "👍" messages.
+
+### 2. Built-in User Authentication
+We handle OAuth flows for GitHub, Jira, Google Drive, and more. Users connect their accounts once, and we manage tokens, refresh flows, and permissions automatically. Your agent gets authenticated API access without writing auth code.
+
+### 3. Framework Agnostic
+Works with any AI framework - LangChain, CrewAI, LlamaIndex, or direct OpenAI/Anthropic APIs. Or use our pre-configured serverless agents to get started in minutes.
+
+## Key Features
+
+### Slack Integration
+- **Stateless Context Delivery**: Your agent receives complete thread history with each message
+- **Sliding Context Engine**: Keeps last N messages + auto-summary to prevent token overflow  
+- **AI-Ready Attachments**: Files, audio, and links automatically converted to text
+- **Smart Queue & Rate Limiting**: Batches requests intelligently to avoid 429 errors
+- **Thread Session Tracking**: Automatic handling of thread_ts and conversation state
+
+### Developer Experience
+- **One-Command Deploy**: `xpander agent deploy` transforms any agent into Slack-native
+- **Visual Agent Workbench**: Design, debug, and test agents with a visual interface
+- **200+ Pre-Built Tools**: MCP tools library ready to use
+- **Memory & Thread Management**: Persistent storage and context management out-of-the-box
+
+### Enterprise Ready
+- **SOC 2 Compliant**: End-to-end encryption with isolated execution environments
+- **Flexible Deployment**: VPC, serverless, or self-hosted options
+- **Real-time Observability**: Monitor token consumption, latency, and success rates
+- **Enterprise Auth**: SSO, SAML, role-based permissions, and audit logging
+
+## How It Works
+
+### Option 1: Serverless Runtime (Available Now)
+1. Configure your agent in our workbench
+2. Add AI credentials (OpenAI, Anthropic, etc.)
+3. Deploy to Slack in 3 minutes
+4. Start using immediately
+
+### Option 2: Custom Code (Coming Soon)
+```bash
+npm install -g xpander-cli
+xpander agent new my-agent
+# Add your custom logic
+xpander agent deploy
+xpander agent channels enable-slack
+```
+
+## Common Use Cases
+
+### Developer Assistant
+- Automate code reviews and PR feedback
+- Run CI checks and report results
+- Look up documentation and answer questions
+- Create Jira tickets from Slack threads
+
+### Incident Response
+- Spin up war rooms automatically
+- Page on-call engineers
+- Pull diagnostics from monitoring systems
+- Generate incident reports
+
+### Security Copilot
+- Analyze uploaded files for sensitive data
+- Monitor conversations for security risks
+- Automate compliance checks
+- Generate security reports
+
+### Customer Support
+- Answer product questions instantly
+- Route issues to right teams
+- Generate support tickets
+- Provide status updates
+
+## Slack App Details
+
+**Client ID**: 5976344447955.9226989716320
+
+**Required Scopes**: 
+- app_mentions:read, assistant:write, bookmarks:read, calls:read, canvases:read
+- channels:history, channels:join, channels:read, channels:manage
+- chat:write, chat:write.customize, chat:write.public
+- files:read, files:write, groups:history, groups:read
+- im:history, im:read, im:write, im:write.topic
+- links:read, links:write, lists:read, metadata.message:read
+- mpim:history, mpim:read, mpim:write, pins:read
+- reactions:read, reactions:write, reminders:read, remote_files:read
+- team:read, usergroups:read, users.profile:read, users:read, users:read.email
+
+## Technical Details
+
+### Supported AI Providers
+- OpenAI (GPT-4, GPT-3.5)
+- Anthropic (Claude 3, Claude 2)
+- Google (Gemini Pro, PaLM)
+- AWS Bedrock
+- Azure OpenAI
+- Mistral AI
+- Local models via Ollama
+
+### Integration Ecosystem
+- **Development**: GitHub, GitLab, Bitbucket, Jira, Linear
+- **Productivity**: Google Drive, Notion, Confluence
+- **Communication**: Email, Calendar, Zoom
+- **Monitoring**: Datadog, PagerDuty, Sentry
+- **Custom**: Any API via MCP tools
+
+### Architecture
+- Event-driven serverless architecture
+- Automatic scaling based on message volume
+- Multi-region deployment for low latency
+- Queue-based processing for reliability
+- Webhook management and retry logic
+
+## Pricing
+- **Starter**: Free tier for testing
+- **Team**: Usage-based pricing
+- **Enterprise**: Custom pricing with SLA
+
+## Getting Started
+1. Visit https://slack.xpander.ai
+2. Add to Slack: https://slack.com/oauth/v2/authorize?client_id=5976344447955.9226989716320&scope=app_mentions:read,assistant:write,bookmarks:read,calls:read,canvases:read,channels:history,channels:join,channels:read,chat:write,chat:write.customize,chat:write.public,files:read,groups:history,groups:read,im:history,im:read,im:write,im:write.topic,links:read,links:write,lists:read,metadata.message:read,mpim:history,mpim:read,mpim:write,pins:read,reminders:read,remote_files:read,team:read,usergroups:read,users.profile:read,users:read,users:read.email,reactions:write,reactions:read,files:write,channels:manage&user_scope=
+3. Configure your first agent
+4. Start saving time and money
+
+## Resources
+- Documentation: https://docs.xpander.ai/
+- GitHub: https://github.com/xpander-ai/xpander.ai
+- Twitter/X: https://x.com/xpander_ai
+- LinkedIn: https://www.linkedin.com/company/xpander-ai/
+- Support: support@xpander.ai
+
+## Why xpander.ai?
+Building Slack bots is painful. You need to handle OAuth, manage webhooks, track thread state, deal with rate limits, process attachments, and build retry logic. Then you burn money on LLM tokens for trivial messages.
+
+xpander.ai eliminates all this complexity. We give you a simple interface to deploy any AI agent to Slack, with built-in cost optimization, user authentication, and enterprise features. Focus on your AI logic, not Slack infrastructure.
+
+## Legal
+- Privacy Policy: https://xpander.ai/privacy-policy/
+- Terms of Service: https://xpander.ai/terms-of-service/
+
+Last updated: 2025-01-16
