@@ -1,4 +1,5 @@
 {
+  "_comment": "WebSearch skill is provided by Tavily",
   "agents": [
     {
       "id": "browserbase",
