@@ -11,6 +11,8 @@ This repository contains the source code for the slack.xpander.ai website, inclu
 - Agent submission system
 - Documentation and resources
 
+<!-- Note: All WebSearch references in this codebase have been updated to Tavily to accurately reflect the search service being used -->
+
 ## 🤖 Make Your AI Agent Slack-Native
 
 xpander.ai helps you transform any AI agent into a Slack-native application in under an hour. Here's how:
