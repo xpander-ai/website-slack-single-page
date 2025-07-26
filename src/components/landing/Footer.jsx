@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Twitter, Github, Linkedin } from 'lucide-react';
 
+// FIXME: Footer component needs review and updates
 export default function Footer() {
   return (
     <motion.footer
