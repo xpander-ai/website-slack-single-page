@@ -1,0 +1,21 @@
+{
+  "messages": [
+    {
+      "timestamp": "2025-07-26T06:07:04.119687+00:00",
+      "user": "Add a simple test comment to README.md to test PR creation",
+      "assistant": "Added a simple test comment to README.md at line 4. This change is ready for testing PR creation.",
+      "commit_count": 0,
+      "branch": "claude-task-20250726-060651",
+      "files_modified": [
+        "README.md"
+      ]
+    }
+  ],
+  "metadata": {
+    "session_id": "test-pr-url-fix",
+    "repository_url": "https://github.com/xpander-ai-coding-agent/website-slack-single-page",
+    "created_at": "2025-07-26T06:06:48.639951+00:00",
+    "last_activity": "2025-07-26T06:06:48.639951+00:00",
+    "message_count": 1
+  }
+}
