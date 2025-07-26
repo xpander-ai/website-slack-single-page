@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Twitter, Github, Linkedin } from 'lucide-react';
 
+// NOTE: Footer component with social links and sitemap for SEO
+
 export default function Footer() {
   return (
     <motion.footer
