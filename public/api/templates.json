@@ -11,7 +11,7 @@
       "tools": [
         "Mintlify Reader",
         "Code Interpreter",
-        "Web Search",
+        "Tavily",
         "Memory Store"
       ],
       "features": [
