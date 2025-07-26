@@ -136,7 +136,7 @@ export default function Footer() {
           </div>
           <div className="text-center">
             <p className="text-sm text-gray-500">
-              © 2025 xpander.ai. Build better AI agents faster.
+              © 2026 xpander.ai. Build better AI agents faster.
             </p>
           </div>
         </div>
