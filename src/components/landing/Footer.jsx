@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Twitter, Github, Linkedin } from 'lucide-react';
 
 export default function Footer() {
+  // TODO: Add newsletter signup functionality
   return (
     <motion.footer
       className="bg-white border-t border-gray-100 py-8 px-4 lg:px-8"
