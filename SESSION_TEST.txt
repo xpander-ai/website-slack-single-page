@@ -1,0 +1,2 @@
+This is the first message from the previous session
+This is the second message, proving session continuity
