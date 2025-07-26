@@ -45,6 +45,7 @@ Your agent is instantly deployed and ready to use in Slack!
 - **User-Authenticated Actions**: Let users connect their GitHub/Jira/Google accounts for personalized actions
 - **Thread Management**: Automatic conversation context with full thread history
 - **Multimodal Support**: Voice notes transcribed, images analyzed, documents parsed automatically
+- **Web Search**: Powered by Tavily for reliable web search functionality
 - **Cost Optimization**: Smart message routing only invokes your agent when needed
 - **Enterprise Ready**: SOC 2 compliant with optional self-hosted deployment
 
