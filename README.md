@@ -1,5 +1,7 @@
 # xpander.ai - Bring Your AI Agents to Slack
 
+<!-- Issue #1 has been solved -->
+
 The website for slack.xpander.ai, part of xpander.ai
 
 ## 🚀 Overview
