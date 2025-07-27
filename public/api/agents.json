@@ -9,7 +9,7 @@
       "author": "xpander.ai",
       "authorLink": "https://browserbase.com",
       "logo": "/logos/browserbase.png",
-      "skills": ["Mintlify", "WebSearch"],
+      "skills": ["Mintlify", "Tavily"],
       "a2aUrl": "https://browserbase.com/agent",
       "capabilities": [
         "Answer questions from Browserbase documentation",
@@ -51,7 +51,7 @@
       "author": "xpander.ai",
       "authorLink": "https://perplexity.ai",
       "logo": "/logos/perplexity.png",
-      "skills": ["Mintlify", "WebSearch"],
+      "skills": ["Mintlify", "Tavily"],
       "a2aUrl": "https://perplexity.ai/agent",
       "capabilities": [
         "Answer questions from Perplexity documentation",
