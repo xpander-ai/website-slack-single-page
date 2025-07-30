@@ -39,7 +39,7 @@ For developers comfortable with Git:
   "author": "Your Name or Company",
   "authorLink": "https://your-website.com",
   "logo": "/logos/your-logo.png",
-  "skills": ["Mintlify", "WebSearch", "etc"],
+  "skills": ["Mintlify", "Tavily", "etc"],
   "capabilities": [
     "Key capability 1",
     "Key capability 2",
