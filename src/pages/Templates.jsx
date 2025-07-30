@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Link } from 'react-router-dom';
 import TopBar from '../components/landing/TopBar';
 import Footer from '../components/landing/Footer';
+import TemplateCard from '@/components/ui/TemplateCard';
 
 export default function Templates() {
   const [templates, setTemplates] = useState([]);
@@ -107,11 +108,19 @@ export default function Templates() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
+            <Badge className="mb-4 bg-[#6B4EFF]/10 text-[#6B4EFF] border-[#6B4EFF]/20">
+              <Sparkles className="w-3 h-3 mr-1" />
+              Pre-configured Templates
+            </Badge>
             <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Agent Templates
+              Agent Templates Library
             </h1>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Start with pre-configured AI agent templates. Deploy in minutes, customize to your needs.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-2">
+              Start with battle-tested agent templates. Each template includes pre-configured tools, 
+              prompts, and integrations - ready to deploy in minutes.
+            </p>
+            <p className="text-sm text-gray-500 max-w-2xl mx-auto">
+              All templates are fully customizable. Use them as-is or modify to fit your specific needs.
             </p>
           </motion.div>
 
@@ -198,101 +207,72 @@ export default function Templates() {
               </Button>
             </motion.div>
           ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-            >
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredTemplates.map((template, index) => (
-                <motion.div
+                <TemplateCard
                   key={template.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
-                    <CardHeader>
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                          {template.icon ? (
-                            <img src={template.icon} alt={template.name} className="w-8 h-8" />
-                          ) : (
-                            <Package className="w-6 h-6 text-gray-400" />
-                          )}
-                        </div>
-                        {template.popularity && (
-                          <Badge className={`flex items-center gap-1 ${getPopularityColor(template.popularity)}`}>
-                            {getPopularityIcon(template.popularity)}
-                            {template.popularity}
-                          </Badge>
-                        )}
-                      </div>
-                      <CardTitle className="text-lg">{template.name}</CardTitle>
-                      <CardDescription className="mt-2">
-                        {template.shortDescription}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-1 flex flex-col">
-                      <div className="space-y-4 flex-1">
-                        {/* Framework and Models */}
-                        <div>
-                          <p className="text-sm font-medium text-gray-700 mb-2">Framework & Models</p>
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <Badge variant="secondary">{template.framework}</Badge>
-                            {template.models.map((model, idx) => (
-                              <Badge key={idx} variant="outline" className="text-xs">
-                                {model}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Tools */}
-                        <div>
-                          <p className="text-sm font-medium text-gray-700 mb-2">Included Tools</p>
-                          <div className="flex flex-wrap gap-1">
-                            {template.tools.slice(0, 3).map((tool, idx) => (
-                              <Badge key={idx} variant="outline" className="text-xs">
-                                {tool}
-                              </Badge>
-                            ))}
-                            {template.tools.length > 3 && (
-                              <Badge variant="outline" className="text-xs">
-                                +{template.tools.length - 3} more
-                              </Badge>
-                            )}
-                          </div>
-                        </div>
-
-                        {/* Setup Time */}
-                        <div className="flex items-center gap-2 text-sm text-gray-600">
-                          <Clock className="w-4 h-4" />
-                          <span>{template.setupTime} setup</span>
-                        </div>
-                      </div>
-
-                      {/* CTA Button */}
-                      <div className="mt-6">
-                        <Button asChild className="w-full bg-[#6B4EFF] hover:bg-[#6B4EFF]/90">
-                          <Link to={`/templates/${template.slug}`}>
-                            Use This Template
-                          </Link>
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </motion.div>
+                  template={template}
+                  delay={index * 0.1}
+                />
               ))}
-            </motion.div>
+            </div>
           )}
+
+          {/* Template Types Explanation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-16 mb-16"
+          >
+            <Card className="bg-gradient-to-r from-[#F5F6FF] to-white border-[#6B4EFF]/10">
+              <CardContent className="py-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">
+                  Understanding Template Types
+                </h3>
+                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-[#6B4EFF] rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Zap className="w-5 h-5 text-white" />
+                      </div>
+                      <h4 className="font-semibold text-gray-900">Pre-configured Agents</h4>
+                    </div>
+                    <p className="text-sm text-gray-600 pl-13">
+                      Ready-to-deploy agents with specific integrations already set up. 
+                      Perfect when you need a working solution immediately. Just add your API keys and start using.
+                    </p>
+                    <div className="pl-13">
+                      <Badge variant="secondary" className="text-xs">Example: Browserbase Documentation Agent</Badge>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 bg-[#6B4EFF]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Package className="w-5 h-5 text-[#6B4EFF]" />
+                      </div>
+                      <h4 className="font-semibold text-gray-900">Base Templates</h4>
+                    </div>
+                    <p className="text-sm text-gray-600 pl-13">
+                      Foundational templates showing the architecture behind our agents. 
+                      Great for developers who want to understand and customize the implementation.
+                    </p>
+                    <div className="pl-13">
+                      <Badge variant="outline" className="text-xs">Example: Mintlify Documentation Template</Badge>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
 
           {/* Bottom CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16 text-center"
+            className="text-center"
           >
             <Card className="bg-gradient-to-r from-[#6B4EFF]/10 to-[#8B5CF6]/10 border-[#6B4EFF]/20">
               <CardContent className="py-8">

@@ -19,7 +19,8 @@
       ],
       "slackInstallUrl": "https://slack.com/oauth/v2/authorize?client_id=browserbase",
       "installCount": "1.2k installs",
-      "createdAt": "2024-01-15T08:00:00Z"
+      "createdAt": "2024-01-15T08:00:00Z",
+      "templateId": "mintlify-docs"
     },
     {
       "id": "cursor",
@@ -40,7 +41,8 @@
       ],
       "slackInstallUrl": "https://slack.com/oauth/v2/authorize?client_id=cursor",
       "installCount": "3.4k installs",
-      "createdAt": "2024-01-20T10:30:00Z"
+      "createdAt": "2024-01-20T10:30:00Z",
+      "templateId": "mintlify-docs"
     },
     {
       "id": "perplexity",
@@ -61,7 +63,8 @@
       ],
       "slackInstallUrl": "https://slack.com/oauth/v2/authorize?client_id=perplexity",
       "installCount": "2.1k installs",
-      "createdAt": "2024-02-01T14:00:00Z"
+      "createdAt": "2024-02-01T14:00:00Z",
+      "templateId": "mintlify-docs"
     },
     {
       "id": "qdrant",
@@ -82,7 +85,8 @@
       ],
       "slackInstallUrl": "https://slack.com/oauth/v2/authorize?client_id=qdrant",
       "installCount": "890 installs",
-      "createdAt": "2024-02-10T11:00:00Z"
+      "createdAt": "2024-02-10T11:00:00Z",
+      "templateId": "data-analyst"
     }
   ],
   "meta": {

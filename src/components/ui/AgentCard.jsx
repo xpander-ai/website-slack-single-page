@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Globe, ArrowRight } from 'lucide-react';
+import { ExternalLink, Globe, ArrowRight, FileCode } from 'lucide-react';
 
 export default function AgentCard({ agent, delay = 0, showDetails = true }) {
   if (!agent) return null;
@@ -122,14 +122,14 @@ export default function AgentCard({ agent, delay = 0, showDetails = true }) {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-2 flex-shrink-0">
+          <div className="flex flex-col gap-2 flex-shrink-0">
             <Button
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 handleSlackInstall(e);
               }}
-              className="flex-1 gradient-bg hover:opacity-90 text-white font-semibold transition-all duration-300 rounded-xl shadow-md hover:shadow-lg"
+              className="w-full gradient-bg hover:opacity-90 text-white font-semibold transition-all duration-300 rounded-xl shadow-md hover:shadow-lg"
               size="sm"
             >
               <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">
@@ -137,6 +137,18 @@ export default function AgentCard({ agent, delay = 0, showDetails = true }) {
               </svg>
               Add to Slack
             </Button>
+            {agent.templateId && (
+              <a
+                href={`https://app.xpander.ai/slack_agents/new?templateId=${agent.templateId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="text-xs text-center text-[#6B4EFF] hover:text-[#6B4EFF]/80 font-medium flex items-center justify-center gap-1 py-1 transition-colors"
+              >
+                <FileCode className="w-3 h-3" />
+                Use Template
+              </a>
+            )}
           </div>
         </div>
       </div>

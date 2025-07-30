@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, FileCode } from 'lucide-react';
 
 export default function HomeAgentCard({ agent, delay = 0 }) {
   if (!agent) return null;
@@ -89,7 +89,7 @@ export default function HomeAgentCard({ agent, delay = 0 }) {
             <div className="flex-1"></div>
 
             {/* Action Buttons */}
-            <div className="flex gap-2 flex-shrink-0 mb-3">
+            <div className="flex flex-col gap-1 flex-shrink-0 mb-3">
               <Button
                 onClick={(e) => {
                   e.preventDefault();
@@ -105,6 +105,18 @@ export default function HomeAgentCard({ agent, delay = 0 }) {
                 </svg>
                 Add to Slack
               </Button>
+              {agent.templateId && (
+                <a
+                  href={`https://app.xpander.ai/slack_agents/new?templateId=${agent.templateId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-xs text-center text-[#6B4EFF] hover:text-[#6B4EFF]/80 font-medium flex items-center justify-center gap-1 py-0.5 transition-colors"
+                >
+                  <FileCode className="w-3 h-3" />
+                  Use Template
+                </a>
+              )}
             </div>
 
             {/* Author info */}
