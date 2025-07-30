@@ -1,4 +1,5 @@
 # xpander.ai - Bring Your AI Agents to Slack
+<!-- Updated by Claude -->
 
 The website for slack.xpander.ai, part of xpander.ai
 
