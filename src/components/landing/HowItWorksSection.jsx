@@ -270,14 +270,14 @@ export default function HowItWorksSection() {
     ];
 
     return (
-        <section id="how-it-works" className="py-20 px-4 lg:px-8 bg-gradient-to-b from-white to-gray-50">
+        <section id="how-it-works" className="py-20 px-4 lg:px-8 bg-[#F5F6FF]">
             <div className="max-w-4xl mx-auto">
                 <motion.div
                     className="text-center mb-16"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.3 }}
                 >
                     <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                         Deploy in 3 Simple Steps
@@ -300,7 +300,7 @@ export default function HowItWorksSection() {
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.2, duration: 0.5 }}
+                                transition={{ delay: index * 0.1, duration: 0.3 }}
                             >
                                 <div className="flex items-start gap-6">
                                     {/* Step Number */}

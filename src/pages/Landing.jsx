@@ -140,14 +140,14 @@ export default function Landing() {
         <div>
           <HeroSection />
           <FrameworkCarousel />
+          <HowItWorksSection />
           <SocialProofSection />
-          <SlackAgentsSection />
           <UseCaseCarousel />
           <ProblemSolutionSection />
           <ArchitectureSection />
-          <HowItWorksSection />
           <DeveloperFeaturesSection />
           <FAQSection />
+          <SlackAgentsSection />
           <FinalCTABanner />
           <Footer />
         </div>

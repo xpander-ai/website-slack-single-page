@@ -96,7 +96,8 @@ export default function HomeAgentCard({ agent, delay = 0 }) {
                   e.stopPropagation();
                   handleSlackInstall(e);
                 }}
-                className="w-full gradient-bg hover:opacity-90 text-white font-semibold transition-all duration-300 h-10 text-sm shadow-md hover:shadow-lg rounded-xl"
+                variant="outline"
+                className="w-full text-[#6B4EFF] border-2 border-gray-200 hover:border-[#6B4EFF] hover:bg-[#F9F8FF] font-semibold transition-all duration-300 h-10 text-sm rounded-xl"
                 size="sm"
               >
                 <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">

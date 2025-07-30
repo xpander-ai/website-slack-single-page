@@ -436,19 +436,22 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                <div className="flex flex-col items-center sm:items-start">
+                  <Button
+                    size="default"
+                    onClick={handleQuickStartClick}
+                    className="gradient-bg hover-lift text-white font-semibold"
+                  >
+                    Create & Deploy Agent Now
+                  </Button>
+                  <p className="text-xs text-gray-500 mt-2 text-center sm:text-left">5 minutes • No credit card required</p>
+                </div>
                 <Button
-                  size="lg"
-                  onClick={handleQuickStartClick}
-                  className="gradient-bg hover-lift text-white px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold rounded-xl w-full sm:w-auto"
-                >
-                  5-minute quick-start →
-                </Button>
-                <Button
-                  size="lg"
+                  size="default"
                   variant="outline"
                   onClick={handleSlackExamplesClick}
-                  className="text-[#6B4EFF] border-2 border-gray-200 hover:border-[#6B4EFF] hover:bg-[#F9F8FF] px-6 lg:px-8 py-3 lg:py-4 text-base lg:text-lg font-semibold rounded-xl w-full sm:w-auto"
+                  className="text-[#6B4EFF] border border-gray-200 hover:border-[#6B4EFF] hover:bg-[#F9F8FF] font-semibold"
                 >
                   Slack Apps examples →
                 </Button>
@@ -507,7 +510,7 @@ export default function HeroSection() {
                           key={index}
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                          transition={{ duration: 0.2, delay: index * 0.05 }}
                           className="flex gap-2 sm:gap-3 items-start min-w-0"
                         >
                           {message.bot ? (

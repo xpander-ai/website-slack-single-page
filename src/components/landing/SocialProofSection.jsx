@@ -39,7 +39,7 @@ export default function SocialProofSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
         >
           <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-8">
             Trusted by engineers at world-class companies

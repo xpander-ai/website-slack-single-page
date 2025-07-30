@@ -79,7 +79,7 @@ export default function SlackAgentsSection() {
   }
 
   return (
-    <section className="py-24 px-4 lg:px-8 bg-gradient-to-br from-purple-50 to-blue-50 relative overflow-hidden">
+    <section className="py-24 px-4 lg:px-8 bg-white relative overflow-hidden">
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
