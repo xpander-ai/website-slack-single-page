@@ -1,8 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import { featureFlags } from '@/config/featureFlags';
 
 export default function TopBar() {
+  const location = useLocation();
+  const isOnSubPage = location.pathname !== '/';
+
   return (
     <motion.header
       className="gradient-bg py-3 px-4 lg:px-8 fixed top-0 w-full z-50 shadow-md"
@@ -12,6 +17,16 @@ export default function TopBar() {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center relative">
         <div className="flex items-center gap-4 lg:gap-8">
+          {isOnSubPage && (
+            <a 
+              href="/" 
+              className="flex items-center gap-2 text-white/90 hover:text-white transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span className="text-sm font-medium">Back</span>
+            </a>
+          )}
+          
           <a href="https://xpander.ai" className="flex items-center space-x-3">
             <img src="/xpander-logo-white.png" alt="xpander.ai logo" className="h-6 lg:h-7" />
           </a>
@@ -44,10 +59,16 @@ export default function TopBar() {
               Careers
             </a>
             <a 
-              href="/agents" 
+              href="/templates" 
               className="text-white/90 text-sm font-medium hover:text-white transition-colors"
             >
               Agent Templates
+            </a>
+            <a 
+              href="/agents" 
+              className="text-white/90 text-sm font-medium hover:text-white transition-colors"
+            >
+              Slack Agent Directory
             </a>
           </nav>
         </div>

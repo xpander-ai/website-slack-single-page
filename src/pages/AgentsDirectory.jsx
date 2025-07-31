@@ -180,20 +180,9 @@ export default function AgentsDirectory() {
             <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
               Slack Agent Directory
             </h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-              Discover Slack-native AI agents running on xpander.ai. Install directly to your Slack workspace
-              or submit your own.
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover Slack-native AI agents running on xpander.ai. Install directly to your Slack workspace.
             </p>
-            <Button
-              asChild
-              size="lg"
-              className="gradient-bg hover-lift text-white px-8 py-4 text-lg font-semibold rounded-xl"
-            >
-              <Link to="/agents/submit">
-                <Plus className="mr-2 w-5 h-5" />
-                Submit Your Agent
-              </Link>
-            </Button>
           </motion.div>
         </div>
       </section>
@@ -379,6 +368,35 @@ export default function AgentsDirectory() {
               </Button>
             </motion.div>
           )}
+        </div>
+      </section>
+
+      {/* Submit Your Agent Section */}
+      <section className="py-16 px-4 lg:px-8 bg-gradient-to-br from-purple-50 to-blue-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.2 }}
+          >
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Share Your Agent with the Community
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              Built an amazing Slack agent? Submit it to our directory and help other teams discover powerful AI solutions.
+            </p>
+            <Button
+              asChild
+              size="lg"
+              className="gradient-bg hover-lift text-white px-8 py-4 text-lg font-semibold rounded-xl"
+            >
+              <Link to="/agents/submit">
+                <Plus className="mr-2 w-5 h-5" />
+                Submit Your Agent
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 

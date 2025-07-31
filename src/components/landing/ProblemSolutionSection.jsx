@@ -80,12 +80,12 @@ export default function ProblemSolutionSection() {
     {
       icon: Gauge,
       pain: {
-        title: "429s & runaway tokens",
-        description: "conversations.replies is 1 req/min; naïve polling hits rate-limits and torches cash."
+        title: "Rate limits & high costs",
+        description: "Slack limits thread replies to 1 request per minute. Constant polling causes rate limits and expensive API costs."
       },
       fix: {
         title: "Smart queue + relevance gate",
-        description: "xpander.ai batches under limits and wakes the model only on on-topic text. Cuts token burn, ends 429 panics."
+        description: "xpander.ai batches requests within rate limits and only processes relevant messages. Reduces costs and prevents rate limit errors."
       }
     }
   ];

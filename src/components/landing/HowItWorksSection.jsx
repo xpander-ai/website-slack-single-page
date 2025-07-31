@@ -1,12 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MousePointer, Check, Terminal, Code, Download, ChevronDown } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
 import { featureFlags } from '@/config/featureFlags';
 
 export default function HowItWorksSection() {
     const [activeTab, setActiveTab] = useState('wizard');
     const [selectedFramework, setSelectedFramework] = useState('agno');
+    const [selectedTemplate, setSelectedTemplate] = useState('');
+    const [templates, setTemplates] = useState([]);
+
+    useEffect(() => {
+        const loadTemplates = async () => {
+            try {
+                const response = await fetch('/api/templates.json');
+                const data = await response.json();
+                setTemplates(data.templates || []);
+                // Set first template as default if available
+                if (data.templates && data.templates.length > 0) {
+                    setSelectedTemplate(data.templates[0].id);
+                }
+            } catch (error) {
+                console.error('Error loading templates:', error);
+            }
+        };
+        
+        if (selectedFramework === 'agno') {
+            loadTemplates();
+        }
+    }, [selectedFramework]);
+
+    const getTemplateDeployLink = (templateId) => {
+        return `https://app.xpander.ai/slack_agents/new?templateId=${templateId}`;
+    };
     
     const steps = [
         {
@@ -24,7 +51,7 @@ export default function HowItWorksSection() {
                                     : 'text-gray-600 hover:text-gray-900'
                             }`}
                         >
-                            Build an Slack AI Agent from a template
+                            Start from a Slack AI Agent blueprint
                         </button>
                         <button
                             onClick={() => setActiveTab('code')}
@@ -65,7 +92,7 @@ export default function HowItWorksSection() {
                                             <SelectItem value="agno">
                                                 <div className="flex items-center gap-2">
                                                     <img src="/logos/agno.png" alt="Agno" className="w-4 h-4" />
-                                                    <span>Agno (Available Now)</span>
+                                                    <span>Agno</span>
                                                 </div>
                                             </SelectItem>
                                             <SelectItem value="langchain" disabled>
@@ -84,29 +111,57 @@ export default function HowItWorksSection() {
                                     </Select>
                                 </div>
                                 
+                                {/* Template Selection */}
+                                {selectedFramework === 'agno' && templates.length > 0 && (
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-gray-700">
+                                            Select Template
+                                        </label>
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
+                                                <button className="flex h-10 w-full max-w-xs items-center justify-between rounded-md border border-gray-200 bg-white px-3 py-2 text-sm ring-offset-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-950 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50">
+                                                    {selectedTemplate ? templates.find(t => t.id === selectedTemplate)?.name : "Select a template"}
+                                                    <ChevronDown className="h-4 w-4 opacity-50" />
+                                                </button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent className="w-80">
+                                                {templates.map((template) => (
+                                                    <DropdownMenuItem 
+                                                        key={template.id} 
+                                                        onClick={() => setSelectedTemplate(template.id)}
+                                                    >
+                                                        {template.name}
+                                                    </DropdownMenuItem>
+                                                ))}
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuItem asChild>
+                                                    <a 
+                                                        href="/templates" 
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-[#6B4EFF] font-medium cursor-pointer"
+                                                    >
+                                                        Browse all templates →
+                                                    </a>
+                                                </DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </div>
+                                )}
+                                
                                 {/* Action Buttons */}
                                 <div className="space-y-3">
-                                    {selectedFramework === 'agno' && (
+                                    {selectedFramework === 'agno' && selectedTemplate && (
                                         <div>
                                             <a 
-                                                href="https://app.xpander.ai/slack_agents/new?templateId=072bb326-d45b-4995-a8e0-458e1e4b6d20" 
+                                                href={getTemplateDeployLink(selectedTemplate)} 
                                                 target="_blank" 
                                                 rel="noopener noreferrer"
                                                 className="inline-block"
                                             >
                                                 <button className="gradient-bg hover:opacity-90 text-white font-medium px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 text-sm">
-                                                    Click here to start from template
+                                                    Deploy Selected Configuration
                                                 </button>
-                                            </a>
-                                        </div>
-                                    )}
-                                    {featureFlags.templatesEnabled && (
-                                        <div>
-                                            <a 
-                                                href="/templates" 
-                                                className="text-[#6B4EFF] hover:text-[#6B4EFF]/80 text-sm font-medium underline"
-                                            >
-                                                Browse all templates →
                                             </a>
                                         </div>
                                     )}

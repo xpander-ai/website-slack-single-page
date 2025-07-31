@@ -143,8 +143,8 @@ export default function FrameworkCarousel() {
                     <Zap className="w-5 h-5 text-purple-600" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 mb-2">Build an Slack AI Agent from a template</h3>
-                    <p className="text-sm text-gray-600">Production-ready, optimized for performance, no infrastructure to manage</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Start from a Slack AI Agent blueprint</h3>
+                    <p className="text-sm text-gray-600">Production-ready agent blueprints with full source code. Optimized for performance with stateful memory management</p>
                   </div>
                 </div>
                 <div className="mt-auto">
@@ -164,8 +164,8 @@ export default function FrameworkCarousel() {
                     <Code2 className="w-5 h-5 text-gray-600" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-gray-900 mb-2">Deploy your own agent code</h3>
-                    <p className="text-sm text-gray-600 mb-4">Start from boilerplates of LangChain, CrewAI, or deploy directly. Full control over your agent's behavior</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Instrument your existing agent</h3>
+                    <p className="text-sm text-gray-600 mb-4">Add xpander.ai SDK to your existing agent code and deploy it to run on our platform. Receives Slack events automatically</p>
                     <div className="text-xs text-gray-500 font-medium">
                       <p>Coming soon</p>
                     </div>

@@ -431,7 +431,7 @@ export default function HeroSection() {
                   <ul className="space-y-2 text-sm sm:text-base md:text-lg lg:text-lg">
                     <li className="flex items-start gap-2"><span className="text-purple-500 mt-1.5 flex-shrink-0"> • </span><span>Smart Engage saves 80%+ on LLM costs by pre-screening messages before invoking your agent</span></li>
                     <li className="flex items-start gap-2"><span className="text-purple-500 mt-1.5 flex-shrink-0"> • </span><span>Built-in OAuth handles user authentication for dozens of SaaS platforms like GitHub, Jira, Google, and many more. No security code needed</span></li>
-                    <li className="flex items-start gap-2"><span className="text-purple-500 mt-1.5 flex-shrink-0"> • </span><span>Works with any AI framework or use our <a href="#frameworks" className="text-[#6B4EFF] hover:underline">pre-configured agents</a> (Agno + OpenAI/Bedrock)</span></li>
+                    <li className="flex items-start gap-2"><span className="text-purple-500 mt-1.5 flex-shrink-0"> • </span><span>Automatically converts files, images, and voice messages to text so your agent gets clean input without extra work</span></li>
                   </ul>
                 </div>
               </div>

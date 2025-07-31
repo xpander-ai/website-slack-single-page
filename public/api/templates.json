@@ -1,228 +1,48 @@
 {
   "templates": [
     {
-      "id": "mintlify-docs",
-      "name": "Mintlify Documentation Agent",
-      "slug": "mintlify-docs",
-      "shortDescription": "AI agent that answers questions from your Mintlify documentation with code examples",
-      "fullDescription": "Transform your Mintlify documentation into an intelligent Slack assistant. This template provides a fully configured agent that can answer questions, provide code examples, and guide users through your documentation directly in Slack.",
-      "framework": "Agno",
-      "models": ["OpenAI GPT-4", "OpenAI GPT-3.5"],
-      "tools": [
-        "Mintlify Reader",
-        "Code Interpreter",
-        "Web Search",
-        "Memory Store"
-      ],
-      "features": [
-        "Automatic documentation indexing",
-        "Context-aware responses",
-        "Code snippet generation",
-        "Cross-reference linking",
-        "Version-aware answers"
-      ],
-      "useCase": "documentation",
+      "id": "docs-agent-mintlify",
+      "slug": "docs-agent-mintlify",
+      "name": "Docs Agent (Mintlify Source)",
+      "shortDescription": "Deploy a ready-to-use documentation agent that uses Mintlify as its knowledge source. Perfect for instant Q&A and support on your docs.",
+      "description": "A pre-configured documentation agent that connects to your Mintlify docs. Features intelligent search, context-aware responses, and seamless integration with your existing documentation workflow.",
       "category": "Customer Support",
       "icon": "/logos/xpanderai.png",
-      "popularity": "popular",
-      "setupTime": "3 minutes",
-      "createdAt": "2024-01-15T08:00:00Z"
+      "framework": "Agno",
+      "models": ["All"],
+      "tools": ["Mintlify"],
+      "features": [
+        "Instant documentation search",
+        "Context-aware responses",
+        "Multi-language support",
+        "Code snippet extraction",
+        "Auto-updates from Mintlify"
+      ],
+      "setupTime": "Instant",
+      "author": "xpander.ai",
+      "authorLink": "https://xpander.ai"
     },
     {
-      "id": "kubernetes-ops",
-      "name": "Kubernetes Operations Agent",
-      "slug": "kubernetes-ops",
-      "shortDescription": "Monitor and manage Kubernetes clusters directly from Slack with intelligent alerts",
-      "fullDescription": "A comprehensive Kubernetes management agent that brings cluster operations to Slack. Monitor deployments, get intelligent alerts, debug issues, and execute kubectl commands safely from your Slack workspace.",
-      "framework": "Agno",
-      "models": ["OpenAI GPT-4", "Amazon Bedrock Claude"],
-      "tools": [
-        "Kubernetes API",
-        "Prometheus Metrics",
-        "Log Aggregator",
-        "Alert Manager"
-      ],
-      "features": [
-        "Real-time cluster monitoring",
-        "Intelligent alert filtering",
-        "Safe kubectl execution",
-        "Resource optimization suggestions",
-        "Incident response automation"
-      ],
-      "useCase": "devops",
-      "category": "DevOps & Infrastructure",
+      "id": "support-multi-agent",
+      "slug": "support-multi-agent",
+      "name": "Support multi-agent system",
+      "shortDescription": "Automate and streamline your support process with a ready-to-use team of AI agents. Integrates with ticketing and scheduling tools, and deploys easily to Slack.",
+      "description": "A comprehensive multi-agent support system that handles tickets, schedules meetings, and provides instant responses. Includes specialized agents for different support scenarios.",
+      "category": "Customer Support",
       "icon": "/logos/xpanderai.png",
-      "popularity": "trending",
-      "setupTime": "5 minutes",
-      "createdAt": "2024-02-01T08:00:00Z"
-    },
-    {
-      "id": "github-pr-reviewer",
-      "name": "GitHub PR Review Agent",
-      "slug": "github-pr-reviewer",
-      "shortDescription": "Automated code review assistant that provides intelligent feedback on pull requests",
-      "fullDescription": "Enhance your code review process with an AI-powered agent that automatically reviews pull requests, suggests improvements, and checks for common issues. Integrates seamlessly with your GitHub workflow.",
       "framework": "Agno",
-      "models": ["OpenAI GPT-4"],
-      "tools": [
-        "GitHub API",
-        "Code Analyzer",
-        "Security Scanner",
-        "Test Runner"
-      ],
+      "models": ["All"],
+      "tools": ["Mintlify", "Notion"],
       "features": [
-        "Automatic PR analysis",
-        "Code quality suggestions",
-        "Security vulnerability detection",
-        "Test coverage reports",
-        "Style guide enforcement"
-      ],
-      "useCase": "development",
-      "category": "Development Tools",
-      "icon": "/logos/xpanderai.png",
-      "popularity": "popular",
-      "setupTime": "3 minutes",
-      "createdAt": "2024-01-20T08:00:00Z"
-    },
-    {
-      "id": "sales-crm-agent",
-      "name": "Sales CRM Assistant",
-      "slug": "sales-crm-agent",
-      "shortDescription": "AI-powered sales assistant that integrates with Salesforce and HubSpot",
-      "fullDescription": "Streamline your sales workflow with an intelligent agent that can update CRM records, fetch customer information, and provide insights directly in Slack. Works with both Salesforce and HubSpot.",
-      "framework": "Agno",
-      "models": ["OpenAI GPT-4", "OpenAI GPT-3.5"],
-      "tools": [
-        "Salesforce API",
-        "HubSpot API",
-        "Email Parser",
-        "Calendar Integration"
-      ],
-      "features": [
-        "CRM record updates via Slack",
-        "Deal pipeline visibility",
-        "Contact enrichment",
+        "Automated ticket routing",
+        "Smart response suggestions",
         "Meeting scheduling",
-        "Sales analytics reports"
+        "Escalation handling",
+        "Multi-agent collaboration"
       ],
-      "useCase": "sales",
-      "category": "Sales & Marketing",
-      "icon": "/logos/xpanderai.png",
-      "popularity": "new",
-      "setupTime": "5 minutes",
-      "createdAt": "2024-03-01T08:00:00Z"
-    },
-    {
-      "id": "incident-response",
-      "name": "Incident Response Coordinator",
-      "slug": "incident-response",
-      "shortDescription": "Orchestrate incident response with automated runbooks and team coordination",
-      "fullDescription": "A comprehensive incident management agent that helps coordinate response efforts, execute runbooks, and maintain communication during critical incidents. Integrates with PagerDuty, Datadog, and other monitoring tools.",
-      "framework": "Agno",
-      "models": ["OpenAI GPT-4"],
-      "tools": [
-        "PagerDuty API",
-        "Datadog API",
-        "Slack Workflow Builder",
-        "Status Page Updater"
-      ],
-      "features": [
-        "Automated incident creation",
-        "Runbook execution",
-        "Team member coordination",
-        "Status page updates",
-        "Post-mortem generation"
-      ],
-      "useCase": "operations",
-      "category": "DevOps & Infrastructure",
-      "icon": "/logos/xpanderai.png",
-      "popularity": "trending",
-      "setupTime": "5 minutes",
-      "createdAt": "2024-02-15T08:00:00Z"
-    },
-    {
-      "id": "data-analyst",
-      "name": "Data Analysis Assistant",
-      "slug": "data-analyst",
-      "shortDescription": "Query databases and generate insights using natural language in Slack",
-      "fullDescription": "Transform natural language questions into SQL queries and get instant data insights. This agent connects to your databases, runs analysis, and creates visualizations directly in Slack.",
-      "framework": "Agno",
-      "models": ["OpenAI GPT-4"],
-      "tools": [
-        "SQL Query Builder",
-        "Data Visualizer",
-        "BigQuery Connector",
-        "PostgreSQL Connector"
-      ],
-      "features": [
-        "Natural language to SQL",
-        "Automatic chart generation",
-        "Data exploration",
-        "Scheduled reports",
-        "Query optimization"
-      ],
-      "useCase": "analytics",
-      "category": "Data & Analytics",
-      "icon": "/logos/xpanderai.png",
-      "popularity": "popular",
-      "setupTime": "5 minutes",
-      "createdAt": "2024-01-25T08:00:00Z"
-    },
-    {
-      "id": "hr-onboarding",
-      "name": "HR Onboarding Assistant",
-      "slug": "hr-onboarding",
-      "shortDescription": "Automate employee onboarding with intelligent task tracking and resource sharing",
-      "fullDescription": "Streamline your onboarding process with an AI agent that guides new employees, tracks task completion, and answers HR questions. Integrates with common HR systems and document stores.",
-      "framework": "Agno",
-      "models": ["OpenAI GPT-3.5"],
-      "tools": [
-        "Document Store",
-        "Task Tracker",
-        "Calendar Integration",
-        "Email Automation"
-      ],
-      "features": [
-        "Onboarding checklist automation",
-        "Policy Q&A",
-        "Benefits enrollment help",
-        "IT provisioning requests",
-        "Feedback collection"
-      ],
-      "useCase": "hr",
-      "category": "HR & Operations",
-      "icon": "/logos/xpanderai.png",
-      "popularity": "new",
-      "setupTime": "3 minutes",
-      "createdAt": "2024-03-10T08:00:00Z"
-    },
-    {
-      "id": "security-scanner",
-      "name": "Security Vulnerability Scanner",
-      "slug": "security-scanner",
-      "shortDescription": "Continuous security scanning with intelligent vulnerability prioritization",
-      "fullDescription": "Keep your applications secure with an agent that continuously scans for vulnerabilities, prioritizes risks, and suggests remediation steps. Integrates with popular security tools and CI/CD pipelines.",
-      "framework": "Agno",
-      "models": ["OpenAI GPT-4"],
-      "tools": [
-        "Snyk API",
-        "GitHub Security API",
-        "OWASP Scanner",
-        "CVE Database"
-      ],
-      "features": [
-        "Automated vulnerability scanning",
-        "Risk prioritization",
-        "Remediation suggestions",
-        "Compliance reporting",
-        "Security trend analysis"
-      ],
-      "useCase": "security",
-      "category": "Security & Compliance",
-      "icon": "/logos/xpanderai.png",
-      "popularity": "trending",
-      "setupTime": "5 minutes",
-      "createdAt": "2024-02-20T08:00:00Z"
+      "setupTime": "Instant",
+      "author": "xpander.ai",
+      "authorLink": "https://xpander.ai"
     }
   ]
 }

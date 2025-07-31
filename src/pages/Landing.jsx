@@ -146,8 +146,8 @@ export default function Landing() {
           <ProblemSolutionSection />
           <ArchitectureSection />
           <DeveloperFeaturesSection />
-          <FAQSection />
           <SlackAgentsSection />
+          <FAQSection />
           <FinalCTABanner />
           <Footer />
         </div>
