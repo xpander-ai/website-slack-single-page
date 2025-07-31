@@ -324,7 +324,7 @@ const AnimatedMessage = ({ message, index, isActive }) => {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.15 }}
       className={`flex gap-3 items-start ${message.isEphemeral ? 'opacity-80' : ''}`}
     >
       <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 ${message.bot ? 'bg-white p-1' : message.avatarColor}`}>
@@ -487,7 +487,7 @@ export default function UseCaseCarousel() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             See what Slack-native agents can actually do
@@ -508,7 +508,7 @@ export default function UseCaseCarousel() {
               <button
                 key={useCase.id}
                 onClick={() => handleTabClick(index)}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-200 ${
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-150 ${
                   activeTab === index
                     ? 'bg-[#6B4EFF] text-white shadow-md'
                     : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-100 active:bg-gray-200'
@@ -527,7 +527,7 @@ export default function UseCaseCarousel() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: 'easeInOut' }}
+              transition={{ duration: 0.15, ease: 'easeInOut' }}
             >
               <div className="p-6 bg-gradient-to-br from-purple-50 to-blue-50">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{activeUseCase.title}</h3>
@@ -648,7 +648,7 @@ export default function UseCaseCarousel() {
           <div className="absolute top-1/2 -translate-y-1/2 left-4 z-10">
             <button
               onClick={prevTab}
-              className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 opacity-0 group-hover:opacity-100"
+              className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-150 hover:scale-110 opacity-0 group-hover:opacity-100"
               style={{ touchAction: 'manipulation' }}
               aria-label="Previous use case"
             >
@@ -659,7 +659,7 @@ export default function UseCaseCarousel() {
           <div className="absolute top-1/2 -translate-y-1/2 right-4 z-10">
             <button
               onClick={nextTab}
-              className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 opacity-0 group-hover:opacity-100"
+              className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-150 hover:scale-110 opacity-0 group-hover:opacity-100"
               style={{ touchAction: 'manipulation' }}
               aria-label="Next use case"
             >
@@ -678,7 +678,7 @@ export default function UseCaseCarousel() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.2 }}
                     className="space-y-6"
                   >
                     <div className="space-y-4">
@@ -766,7 +766,7 @@ export default function UseCaseCarousel() {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 1.05 }}
-                      transition={{ duration: 0.5 }}
+                      transition={{ duration: 0.2 }}
                       className="bg-white rounded-2xl shadow-xl overflow-hidden"
                     >
                       <div className="bg-[#3F0E40] p-4 flex items-center justify-between">
@@ -800,7 +800,7 @@ export default function UseCaseCarousel() {
               <button
                 key={index}
                 onClick={() => handleTabClick(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 rounded-full transition-all duration-150 ${
                   index === activeTab ? 'bg-purple-600 scale-125' : 'bg-gray-300 hover:bg-gray-400 active:bg-gray-500'
                 }`}
                 style={{ touchAction: 'manipulation' }}

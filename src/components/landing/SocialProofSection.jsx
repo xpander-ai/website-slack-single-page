@@ -39,14 +39,14 @@ export default function SocialProofSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.15 }}
         >
           <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-8">
             Trusted by engineers at world-class companies
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
             {companies.map(company => (
-              <div key={company} className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+              <div key={company} className="grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all duration-150">
                   <Logo name={company} />
               </div>
             ))}

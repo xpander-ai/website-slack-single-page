@@ -19,7 +19,7 @@ export default function SubmitAgent() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.2 }}
             className="text-center mb-12"
           >
             <Button variant="ghost" asChild className="mb-6">
@@ -52,7 +52,7 @@ export default function SubmitAgent() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.2, delay: 0.1 }}
             className="bg-white rounded-lg shadow-sm border border-gray-200 p-1"
           >
             <FilloutStandardEmbed 

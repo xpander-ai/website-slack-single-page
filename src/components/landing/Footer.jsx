@@ -9,7 +9,7 @@ export default function Footer() {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.2 }}
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
@@ -25,7 +25,7 @@ export default function Footer() {
                 href="https://xpander.ai/privacy-policy/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#6B4EFF] transition-colors duration-200 text-sm font-medium"
+                className="text-gray-600 hover:text-[#6B4EFF] transition-all duration-150 text-sm font-medium"
               >
                 Privacy
               </a>
@@ -33,7 +33,7 @@ export default function Footer() {
                 href="https://xpander.ai/terms-of-service/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#6B4EFF] transition-colors duration-200 text-sm font-medium"
+                className="text-gray-600 hover:text-[#6B4EFF] transition-all duration-150 text-sm font-medium"
               >
                 Terms
               </a>
@@ -41,7 +41,7 @@ export default function Footer() {
                 href="https://docs.xpander.ai/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#6B4EFF] transition-colors duration-200 text-sm font-medium"
+                className="text-gray-600 hover:text-[#6B4EFF] transition-all duration-150 text-sm font-medium"
               >
                 Documentation
               </a>
@@ -49,13 +49,13 @@ export default function Footer() {
             <div className="flex items-center gap-4 sm:gap-6">
               <a
                 href="/agents"
-                className="text-gray-600 hover:text-[#6B4EFF] transition-colors duration-200 text-sm font-medium"
+                className="text-gray-600 hover:text-[#6B4EFF] transition-all duration-150 text-sm font-medium"
               >
                 Slack Agent Directory
               </a>
               <a
                 href="/agents/submit"
-                className="text-gray-600 hover:text-[#6B4EFF] transition-colors duration-200 text-sm font-medium"
+                className="text-gray-600 hover:text-[#6B4EFF] transition-all duration-150 text-sm font-medium"
               >
                 Submit Your Agent
               </a>
@@ -68,7 +68,7 @@ export default function Footer() {
               href="https://x.com/xpander_ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-gray-600 hover:text-[#6B4EFF] hover:bg-gray-50 transition-all duration-200"
+              className="p-2 rounded-lg text-gray-600 hover:text-[#6B4EFF] hover:bg-gray-50 transition-all duration-150"
               aria-label="Follow us on Twitter"
             >
               <Twitter className="w-5 h-5" />
@@ -77,7 +77,7 @@ export default function Footer() {
               href="https://github.com/xpander-ai/xpander.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-gray-600 hover:text-[#6B4EFF] hover:bg-gray-50 transition-all duration-200"
+              className="p-2 rounded-lg text-gray-600 hover:text-[#6B4EFF] hover:bg-gray-50 transition-all duration-150"
               aria-label="View our GitHub"
             >
               <Github className="w-5 h-5" />
@@ -86,7 +86,7 @@ export default function Footer() {
               href="https://www.linkedin.com/company/xpander-ai/"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg text-gray-600 hover:text-[#6B4EFF] hover:bg-gray-50 transition-all duration-200"
+              className="p-2 rounded-lg text-gray-600 hover:text-[#6B4EFF] hover:bg-gray-50 transition-all duration-150"
               aria-label="Connect on LinkedIn"
             >
               <Linkedin className="w-5 h-5" />

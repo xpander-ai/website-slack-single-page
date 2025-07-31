@@ -105,7 +105,7 @@ export default function Templates() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.2 }}
             className="text-center mb-12"
           >
             <Badge className="mb-4 bg-[#6B4EFF]/10 text-[#6B4EFF] border-[#6B4EFF]/20">
@@ -128,7 +128,7 @@ export default function Templates() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.2, delay: 0.1 }}
             className="mb-8"
           >
             <div className="flex flex-col lg:flex-row gap-4 mb-6">
@@ -174,7 +174,7 @@ export default function Templates() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
+            transition={{ duration: 0.15, delay: 0.1 }}
             className="mb-6"
           >
             <p className="text-sm text-gray-600">
@@ -222,7 +222,7 @@ export default function Templates() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.2, delay: 0.15 }}
             className="mt-16 mb-16"
           >
             <Card className="bg-gradient-to-r from-[#F5F6FF] to-white border-[#6B4EFF]/10">
@@ -271,7 +271,7 @@ export default function Templates() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.2, delay: 0.1 }}
             className="text-center"
           >
             <Card className="bg-gradient-to-r from-[#6B4EFF]/10 to-[#8B5CF6]/10 border-[#6B4EFF]/20">

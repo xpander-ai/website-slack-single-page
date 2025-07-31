@@ -129,14 +129,14 @@ export default function FrameworkCarousel() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
           className="text-center"
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight mb-8">
             Works with any agent framework
           </h2>
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border-2 border-purple-200 hover:shadow-lg transition-all duration-300 h-full">
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border-2 border-purple-200 hover:shadow-lg transition-all duration-150 h-full">
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 bg-purple-200 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -157,7 +157,7 @@ export default function FrameworkCarousel() {
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-purple-200 hover:shadow-lg transition-all duration-300 h-full">
+            <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-purple-200 hover:shadow-lg transition-all duration-150 h-full">
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">

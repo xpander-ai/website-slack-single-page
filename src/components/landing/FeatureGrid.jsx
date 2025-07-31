@@ -53,7 +53,7 @@ export default function FeatureGrid() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" }
+      transition: { duration: 0.2, ease: "easeOut" }
     }
   };
 
@@ -70,16 +70,16 @@ export default function FeatureGrid() {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="group p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer hover-lift"
+              className="group p-8 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-150 cursor-pointer hover-lift"
               variants={itemVariants}
             >
               <div className="space-y-4">
-                <div className="relative w-14 h-14 rounded-2xl bg-[#6B4EFF] bg-opacity-10 flex items-center justify-center group-hover:bg-opacity-20 transition-all duration-300">
+                <div className="relative w-14 h-14 rounded-2xl bg-[#6B4EFF] bg-opacity-10 flex items-center justify-center group-hover:bg-opacity-20 transition-all duration-150">
                   <feature.icon className="w-7 h-7 text-[#6B4EFF]" />
-                  <div className="absolute inset-0 rounded-2xl ring-2 ring-transparent group-hover:ring-[#6B4EFF]/20 transition-all duration-300"></div>
+                  <div className="absolute inset-0 rounded-2xl ring-2 ring-transparent group-hover:ring-[#6B4EFF]/20 transition-all duration-150"></div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#6B4EFF] transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#6B4EFF] transition-all duration-150">
                   {feature.title}
                 </h3>
                 

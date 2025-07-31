@@ -39,13 +39,13 @@ export default function TemplateCard({ template, delay = 0 }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
+      transition={{ duration: 0.2, delay }}
       className="group relative h-full"
     >
       <Link to={`/templates/${template.slug}`} className="block h-full">
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 p-6 h-full flex flex-col relative overflow-hidden group-hover:border-[#6B4EFF]/20 hover-lift">
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-150 p-6 h-full flex flex-col relative overflow-hidden group-hover:border-[#6B4EFF]/20 hover-lift">
           {/* Background decoration */}
-          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#6B4EFF]/5 to-blue-500/5 rounded-full -translate-y-20 translate-x-20 group-hover:scale-110 transition-transform duration-500"></div>
+          <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#6B4EFF]/5 to-blue-500/5 rounded-full -translate-y-20 translate-x-20 group-hover:scale-110 transition-all duration-150"></div>
           
           <div className="relative z-10 flex flex-col h-full">
             {/* Header with icon and popularity */}
@@ -61,7 +61,7 @@ export default function TemplateCard({ template, delay = 0 }) {
                   </div>
                 )}
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#6B4EFF] transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-[#6B4EFF] transition-all duration-150">
                     {template.name}
                   </h3>
                   <p className="text-sm text-gray-500 flex items-center gap-2 mt-1">
@@ -162,7 +162,7 @@ export default function TemplateCard({ template, delay = 0 }) {
                 e.stopPropagation();
                 window.open(`https://app.xpander.ai/slack_agents/new?templateId=${template.id}`, '_blank');
               }}
-              className="w-full gradient-bg hover:opacity-90 text-white font-semibold transition-all duration-300 rounded-xl"
+              className="w-full gradient-bg hover:opacity-90 text-white font-semibold transition-all duration-150 rounded-xl"
               size="sm"
             >
               Use This Template

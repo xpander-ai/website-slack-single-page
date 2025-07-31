@@ -17,7 +17,7 @@ export default function ProblemSolutionSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" }
+      transition: { duration: 0.2, ease: "easeOut" }
     }
   };
 
@@ -106,7 +106,7 @@ export default function ProblemSolutionSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
             Why building Slack agents is harder than it should be
@@ -129,7 +129,7 @@ export default function ProblemSolutionSection() {
               <motion.div
                 key={index}
                 variants={rowVariants}
-                className="bg-white rounded-xl border border-gray-200 p-6 hover:border-purple-200 hover:shadow-md transition-all duration-300"
+                className="bg-white rounded-xl border border-gray-200 p-6 hover:border-purple-200 hover:shadow-md transition-all duration-150"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -163,7 +163,7 @@ export default function ProblemSolutionSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.2, delay: 0.1 }}
         >
           <p className="text-lg text-gray-600 font-medium">
             Stop building Slack infrastructure. Start building AI value.

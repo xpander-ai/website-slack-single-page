@@ -11,7 +11,7 @@ export default function MiniCaseStudy() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
         >
           <div className="flex items-center justify-center gap-2 mb-4">
             <BarChart3 className="w-6 h-6 text-blue-600" />

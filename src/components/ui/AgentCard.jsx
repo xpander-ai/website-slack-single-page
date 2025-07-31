@@ -26,14 +26,14 @@ export default function AgentCard({ agent, delay = 0, showDetails = true }) {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.5, delay }}
+        transition={{ duration: 0.2, delay }}
         className="group relative h-full"
       >
         <Link to={`/agents/${agent.slug}`} className="block h-full">
-          <div className="bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 p-6 h-full min-h-[280px] flex flex-col relative overflow-hidden group-hover:border-[#6B4EFF]/20 hover-lift cursor-pointer">
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-lg hover:shadow-2xl transition-all duration-150 p-6 h-full min-h-[280px] flex flex-col relative overflow-hidden group-hover:border-[#6B4EFF]/20 hover-lift cursor-pointer">
         {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#6B4EFF]/10 to-blue-500/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-110 transition-transform duration-500"></div>
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#6B4EFF]/5 to-transparent rounded-full translate-y-12 -translate-x-12 group-hover:scale-110 transition-transform duration-500"></div>
+        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#6B4EFF]/10 to-blue-500/10 rounded-full -translate-y-16 translate-x-16 group-hover:scale-110 transition-all duration-150"></div>
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-[#6B4EFF]/5 to-transparent rounded-full translate-y-12 -translate-x-12 group-hover:scale-110 transition-all duration-150"></div>
         
         <div className="relative z-10 flex flex-col h-full">
 
@@ -54,12 +54,12 @@ export default function AgentCard({ agent, delay = 0, showDetails = true }) {
                 </div>
               )}
               <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#6B4EFF] transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#6B4EFF] transition-all duration-150">
                   {agent.name}
                 </h3>
               </div>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 group-hover:text-gray-700 transition-colors duration-300">
+            <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 group-hover:text-gray-700 transition-all duration-150">
               {agent.shortDescription}
             </p>
           </div>
@@ -129,7 +129,7 @@ export default function AgentCard({ agent, delay = 0, showDetails = true }) {
                 e.stopPropagation();
                 handleSlackInstall(e);
               }}
-              className="w-full gradient-bg hover:opacity-90 text-white font-semibold transition-all duration-300 rounded-xl shadow-md hover:shadow-lg"
+              className="w-full gradient-bg hover:opacity-90 text-white font-semibold transition-all duration-150 rounded-xl shadow-md hover:shadow-lg"
               size="sm"
             >
               <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor">

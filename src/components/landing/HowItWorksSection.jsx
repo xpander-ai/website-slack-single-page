@@ -94,7 +94,7 @@ export default function HowItWorksSection() {
                                                 rel="noopener noreferrer"
                                                 className="inline-block"
                                             >
-                                                <button className="gradient-bg hover:opacity-90 text-white font-medium px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-sm">
+                                                <button className="gradient-bg hover:opacity-90 text-white font-medium px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-150 text-sm">
                                                     Click here to start from template
                                                 </button>
                                             </a>
@@ -277,7 +277,7 @@ export default function HowItWorksSection() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.15 }}
                 >
                     <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                         Deploy in 3 Simple Steps
@@ -300,7 +300,7 @@ export default function HowItWorksSection() {
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1, duration: 0.3 }}
+                                transition={{ delay: index * 0.05, duration: 0.15 }}
                             >
                                 <div className="flex items-start gap-6">
                                     {/* Step Number */}

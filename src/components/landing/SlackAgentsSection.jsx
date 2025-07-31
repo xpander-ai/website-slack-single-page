@@ -52,7 +52,7 @@ export default function SlackAgentsSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.2, ease: "easeOut" }
     }
   };
 
@@ -88,7 +88,7 @@ export default function SlackAgentsSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.15 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full border border-purple-200/50 mb-6">
             <Sparkles className="w-4 h-4 text-purple-600" />
@@ -141,11 +141,11 @@ export default function SlackAgentsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.2, delay: 0.15 }}
         >
           <Link 
             to="/agents" 
-            className="inline-flex items-center gap-2 text-base text-[#6B4EFF] hover:text-[#6B4EFF]/80 font-medium transition-colors duration-200"
+            className="inline-flex items-center gap-2 text-base text-[#6B4EFF] hover:text-[#6B4EFF]/80 font-medium transition-all duration-150"
           >
             Explore all agents
             <ArrowRight className="w-4 h-4" />

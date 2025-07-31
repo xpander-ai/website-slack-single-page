@@ -66,7 +66,7 @@ export default function TemplateDetail() {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.15 }}
           >
             <Button variant="ghost" asChild className="mb-6">
               <Link to="/templates" className="flex items-center gap-2 text-gray-600 hover:text-gray-900">
@@ -80,7 +80,7 @@ export default function TemplateDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.2 }}
             className="mb-8"
           >
             <div className="flex items-start gap-4 mb-6">
@@ -117,7 +117,7 @@ export default function TemplateDetail() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
               className="lg:col-span-2 space-y-6"
             >
               {/* Description */}
@@ -170,7 +170,7 @@ export default function TemplateDetail() {
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
             >
               <Card className="sticky top-24">
                 <CardHeader className="bg-gray-50 rounded-t-lg">
@@ -243,7 +243,7 @@ export default function TemplateDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.2, delay: 0.1 }}
             className="mt-12"
           >
             <Card className="bg-gradient-to-r from-[#6B4EFF]/5 to-[#8B5CF6]/5 border-[#6B4EFF]/20">

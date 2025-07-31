@@ -175,7 +175,7 @@ export default function AgentsDirectory() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.2 }}
           >
             <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 tracking-tight">
               Slack Agent Directory
@@ -204,7 +204,7 @@ export default function AgentsDirectory() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.2, delay: 0.1 }}
           >
             {/* Search */}
             <div className="relative max-w-xl mx-auto w-full">
@@ -223,7 +223,7 @@ export default function AgentsDirectory() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.2, delay: 0.1 }}
             className="mt-6"
           >
             <div className="flex flex-wrap gap-2 items-center">
@@ -236,7 +236,7 @@ export default function AgentsDirectory() {
                 <Badge
                   key={skill}
                   variant={selectedSkills.includes(skill) ? 'default' : 'outline'}
-                  className={`cursor-pointer transition-all duration-200 ${
+                  className={`cursor-pointer transition-all duration-150 ${
                     selectedSkills.includes(skill)
                       ? 'bg-[#6B4EFF] text-white hover:bg-[#6B4EFF]/90'
                       : 'hover:bg-[#6B4EFF]/10 hover:text-[#6B4EFF] hover:border-[#6B4EFF]'
@@ -268,7 +268,7 @@ export default function AgentsDirectory() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.2, delay: 0.15 }}
             className="mb-6"
           >
             <p className="text-gray-600">
@@ -286,7 +286,7 @@ export default function AgentsDirectory() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {currentAgents.map((agent, index) => (
@@ -294,7 +294,7 @@ export default function AgentsDirectory() {
                   key={agent.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.2, delay: index * 0.05 }}
                 >
                   <AgentCard agent={agent} showDetails={true} index={index} />
                 </motion.div>
@@ -304,7 +304,7 @@ export default function AgentsDirectory() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
               className="text-center py-16"
             >
               <div className="max-w-md mx-auto">
@@ -327,7 +327,7 @@ export default function AgentsDirectory() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
+              transition={{ duration: 0.2, delay: 0.1 }}
               className="mt-12 flex items-center justify-center gap-2"
             >
               {/* Previous Button */}

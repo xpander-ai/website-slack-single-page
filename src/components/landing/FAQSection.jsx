@@ -65,7 +65,7 @@ export default function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Frequently Asked Questions
@@ -82,10 +82,10 @@ export default function FAQSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
+              transition={{ delay: index * 0.05, duration: 0.15 }}
             >
               <button
-                className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-all duration-150"
                 onClick={() => toggleFAQ(index)}
               >
                 <span className="text-lg font-semibold text-gray-900 pr-4">
@@ -111,7 +111,7 @@ export default function FAQSection() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    transition={{ duration: 0.15, ease: "easeInOut" }}
                   >
                     <div 
                       className="px-6 pb-6 text-gray-700 leading-relaxed"

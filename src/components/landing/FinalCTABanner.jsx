@@ -25,7 +25,7 @@ export default function FinalCTABanner() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.15 }}
         >
 
           <div className="relative space-y-8">
@@ -34,7 +34,7 @@ export default function FinalCTABanner() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.6 }}
+              transition={{ delay: 0.1, duration: 0.2 }}
             >
               Take one coffee break. Ship a Slack-native agent without leaving xpander.ai.
             </motion.h2>
@@ -44,7 +44,7 @@ export default function FinalCTABanner() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.6 }}
+              transition={{ delay: 0.15, duration: 0.2 }}
             >
               <Button
                 size="lg"

@@ -31,7 +31,7 @@ export default function ArchitectureSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 tracking-tight">
@@ -46,7 +46,7 @@ export default function ArchitectureSection() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.15, delay: 0.1 }}
           className="relative"
         >
           <div className="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
@@ -288,7 +288,7 @@ export default function ArchitectureSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.2, delay: 0.15 }}
           className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           <div className="text-center">

@@ -84,7 +84,7 @@ export default function DeveloperFeaturesSection() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" }
+      transition: { duration: 0.2, ease: "easeOut" }
     }
   };
 
@@ -95,7 +95,7 @@ export default function DeveloperFeaturesSection() {
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.2 }}
       >
         <div className="w-8 h-8 bg-[#6B4EFF] rounded-lg flex items-center justify-center">
           <Code className="w-5 h-5 text-white" />
@@ -113,16 +113,16 @@ export default function DeveloperFeaturesSection() {
         {features.map((feature, index) => (
           <motion.div
             key={index}
-            className="group p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 hover-lift"
+            className="group p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-150 hover-lift"
             variants={itemVariants}
           >
             <div className="space-y-4">
-              <div className="relative w-12 h-12 rounded-xl bg-[#6B4EFF] bg-opacity-10 flex items-center justify-center group-hover:bg-opacity-20 transition-all duration-300">
+              <div className="relative w-12 h-12 rounded-xl bg-[#6B4EFF] bg-opacity-10 flex items-center justify-center group-hover:bg-opacity-20 transition-all duration-150">
                 <feature.icon className="w-6 h-6 text-[#6B4EFF]" />
               </div>
               
               <div className="space-y-2">
-                <h4 className="text-lg font-bold text-gray-900 group-hover:text-[#6B4EFF] transition-colors duration-300">
+                <h4 className="text-lg font-bold text-gray-900 group-hover:text-[#6B4EFF] transition-all duration-150">
                   {feature.title}
                 </h4>
                 <p className="text-gray-600 leading-relaxed">
@@ -144,7 +144,7 @@ export default function DeveloperFeaturesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.2 }}
         >
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
             Adding backend to your Agents doesn't end with Slack!
@@ -165,7 +165,7 @@ export default function DeveloperFeaturesSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.2 }}
             >
               <h2 className="text-base font-semibold text-gray-500 uppercase tracking-wider">
                 Enterprise-Grade Security & Reliability
@@ -179,11 +179,11 @@ export default function DeveloperFeaturesSection() {
                   href={badge.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300 hover-lift"
+                  className="group flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-150 hover-lift"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  transition={{ delay: index * 0.05, duration: 0.2 }}
                 >
                   <badge.icon className="w-5 h-5 text-gray-500 group-hover:text-[#6B4EFF] transition-colors" />
                   <span className="font-semibold text-gray-700 group-hover:text-gray-900 transition-colors">
@@ -198,7 +198,7 @@ export default function DeveloperFeaturesSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.2, delay: 0.15 }}
             >
               <a 
                 href="https://app.xpander.ai" 
@@ -206,7 +206,7 @@ export default function DeveloperFeaturesSection() {
                 rel="noopener noreferrer"
                 className="inline-block"
               >
-                <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 text-lg">
+                <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-150 text-lg">
                   Login to xpander.ai Platform
                 </button>
               </a>

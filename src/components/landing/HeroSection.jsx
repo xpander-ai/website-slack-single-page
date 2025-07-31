@@ -229,7 +229,7 @@ export default function HeroSection() {
     }
 
     const step = currentFlow[flowIndexRef.current];
-    const adjustedDelay = Math.max(50, step.delay * 0.5);
+    const adjustedDelay = Math.max(20, step.delay * 0.2);
 
     timeoutRef.current = setTimeout(() => {
       switch (step.type) {
@@ -465,7 +465,7 @@ export default function HeroSection() {
               {/* Navigation Arrows - Visible on mobile, hover on desktop */}
               <button
                 onClick={prevDemo}
-                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md hover:bg-white transition-opacity duration-300 block lg:opacity-0 lg:group-hover:opacity-100"
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md hover:bg-white transition-all duration-150 block lg:opacity-0 lg:group-hover:opacity-100"
                 aria-label="Previous demo"
                 style={{ touchAction: 'manipulation' }}
               >
@@ -474,7 +474,7 @@ export default function HeroSection() {
 
               <button
                 onClick={nextDemo}
-                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md hover:bg-white transition-opacity duration-300 block lg:opacity-0 lg:group-hover:opacity-100"
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md hover:bg-white transition-all duration-150 block lg:opacity-0 lg:group-hover:opacity-100"
                 aria-label="Next demo"
                 style={{ touchAction: 'manipulation' }}
               >
