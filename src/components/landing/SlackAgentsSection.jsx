@@ -5,11 +5,17 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import HomeAgentCard from '@/components/ui/HomeAgentCard';
 import agentsApi from '@/services/agentsApi';
+import { featureFlags } from '@/config/featureFlags';
 
 export default function SlackAgentsSection() {
   const [topAgents, setTopAgents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // Don't render if feature flag is disabled
+  if (!featureFlags.featuredAgentsEnabled) {
+    return null;
+  }
 
   useEffect(() => {
     const loadTopAgents = async () => {

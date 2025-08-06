@@ -45,6 +45,7 @@ export default function HowItWorksSection() {
                     <div className="flex gap-1 p-1 bg-gray-100 rounded-lg">
                         <button
                             onClick={() => setActiveTab('wizard')}
+                            data-tab="wizard"
                             className={`flex-1 px-4 py-2 rounded-md text-sm font-medium transition-all ${
                                 activeTab === 'wizard'
                                     ? 'bg-white text-gray-900 shadow-sm'
@@ -55,6 +56,7 @@ export default function HowItWorksSection() {
                         </button>
                         <button
                             onClick={() => setActiveTab('code')}
+                            data-tab="code"
                             className={`flex-1 px-4 py-2 rounded-md text-sm font-medium transition-all ${
                                 activeTab === 'code'
                                     ? 'bg-white text-gray-900 shadow-sm'
@@ -213,29 +215,61 @@ export default function HowItWorksSection() {
                             <p className="text-gray-600">
                                 Create your agent with custom code using the xpander CLI:
                             </p>
-                            <div className="relative max-w-xl">
-                                <div className="bg-gray-50 rounded-lg p-4 overflow-x-auto border border-gray-200">
-                                    <code className="text-xs font-mono space-y-2 block blur-[2px] text-gray-600">
-                                        <div>
-                                            <span className="text-gray-500"># Create new agent project</span><br/>
-                                            $ xpander agent new
+                            <div className="space-y-4 max-w-2xl">
+                                {/* Step 1 */}
+                                <div>
+                                    <h4 className="text-sm font-semibold text-gray-900 mb-2">Step 1: Install CLI & Initialize</h4>
+                                    <div className="bg-white rounded-lg p-4 overflow-x-auto border border-gray-300 shadow-sm">
+                                        <div className="text-sm font-mono space-y-1">
+                                            <div className="text-green-600"># Install xpander CLI globally</div>
+                                            <div className="text-gray-900">npm install -g xpander-cli</div>
+                                            <div className="mt-2"></div>
+                                            <div className="text-green-600"># Create new agent or fetch backend config</div>
+                                            <div className="text-gray-900">xpander agent new <span className="text-green-600"># or use: xpander init</span></div>
                                         </div>
-                                        <div className="mt-2">
-                                            <span className="text-gray-500"># Select agno runtime when prompted</span>
+                                    </div>
+                                </div>
+                                
+                                {/* Step 2 */}
+                                <div>
+                                    <h4 className="text-sm font-semibold text-gray-900 mb-2">Step 2: Add Your Business Logic</h4>
+                                    <div className="bg-white rounded-lg p-4 overflow-x-auto border border-gray-300 shadow-sm">
+                                        <div className="text-sm font-mono space-y-1">
+                                            <div><span className="text-blue-600">from</span> <span className="text-gray-900">xpander_sdk </span><span className="text-blue-600">import</span> <span className="text-gray-900">Task, Backend, on_task</span></div>
+                                            <div><span className="text-blue-600">from</span> <span className="text-gray-900">agno.agent </span><span className="text-blue-600">import</span> <span className="text-gray-900">Agent</span></div>
+                                            <div className="mt-2"></div>
+                                            <div className="text-green-600"># Stateful agent, zero infrastructure overhead</div>
+                                            <div className="text-purple-600">@on_task</div>
+                                            <div><span className="text-blue-600">async def</span> <span className="text-orange-600">handle_task</span><span className="text-gray-900">(task: Task):</span></div>
+                                            <div className="ml-4"><span className="text-gray-900">backend = Backend()  </span><span className="text-green-600"># DB, MCP tools, system prompt</span></div>
+                                            <div className="ml-4"><span className="text-gray-900">agent = Agent(**</span><span className="text-blue-600">await</span> <span className="text-gray-900">backend.aget_args())</span></div>
+                                            <div className="mt-1 ml-4"></div>
+                                            <div className="ml-4 text-green-600"># Task includes user data + events from Slack, webhooks, agents</div>
+                                            <div className="ml-4"><span className="text-gray-900">result = </span><span className="text-blue-600">await</span> <span className="text-gray-900">agent.arun(message=task.to_message())</span></div>
+                                            <div className="ml-4"><span className="text-gray-900">task.result = result.content</span></div>
+                                            <div className="ml-4"><span className="text-blue-600">return</span> <span className="text-gray-900">task</span></div>
                                         </div>
-                                        <div className="mt-2">
-                                            <span className="text-gray-500"># Set up Python environment</span><br/>
-                                            $ python3 -m venv .venv<br/>
-                                            $ source .venv/bin/activate<br/>
-                                            $ pip install -r requirements.txt
+                                    </div>
+                                </div>
+                                
+                                {/* Integration Guide Alert */}
+                                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                                    <p className="text-sm text-blue-800 mb-2">
+                                        <strong>Need different models or AI frameworks?</strong>
+                                    </p>
+                                    <p className="text-xs text-blue-700">
+                                        Check out our <a href="https://docs.xpander.ai/Examples/04-local-model-integration" target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 hover:text-blue-800 hover:underline">integration guide</a> for local models, different AI frameworks, and custom setups.
+                                    </p>
+                                </div>
+                                
+                                {/* Step 3 */}
+                                <div>
+                                    <h4 className="text-sm font-semibold text-gray-900 mb-2">Step 3: Deploy</h4>
+                                    <div className="bg-white rounded-lg p-4 overflow-x-auto border border-gray-300 shadow-sm">
+                                        <div className="text-sm font-mono space-y-1">
+                                            <div className="text-green-600"># Deploy your agent to production</div>
+                                            <div className="text-gray-900">xpander deploy</div>
                                         </div>
-                                        <div className="mt-2">
-                                            <span className="text-gray-500"># Run your agent</span><br/>
-                                            $ python my_agent.py
-                                        </div>
-                                    </code>
-                                    <div className="absolute top-3 right-3">
-                                        <span className="text-xs font-medium text-gray-400">Coming Soon</span>
                                     </div>
                                 </div>
                             </div>
@@ -246,34 +280,34 @@ export default function HowItWorksSection() {
         },
         {
             icon: Download,
-            title: "Complete Import & Install",
+            title: "Add Slack as Task Source",
             content: (
                 <div className="space-y-4">
                     <p className="text-gray-600">
-                        Complete the import wizard and install the agent on your Slack workspace:
+                        Connect your deployed agent to Slack to receive tasks and messages:
                     </p>
                     <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
                         <ol className="space-y-3 text-sm text-gray-600">
                             <li className="flex items-start gap-2">
                                 <span className="font-semibold text-gray-700">1.</span>
-                                <span>Review and customize your agent configuration</span>
+                                <span>Go to <a href="https://app.xpander.ai/slack_agents/new" target="_blank" rel="noopener noreferrer" className="text-[#6B4EFF] hover:underline font-medium">app.xpander.ai/slack_agents/new</a></span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="font-semibold text-gray-700">2.</span>
-                                <span>Click "Install to Slack" to authorize the agent</span>
+                                <span>Select "Connect Existing Agent" and link your deployed agent</span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="font-semibold text-gray-700">3.</span>
-                                <span>Select the channels where your agent should be active</span>
+                                <span>Configure Slack OAuth and select channels for your agent</span>
                             </li>
                         </ol>
                     </div>
                     <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
                         <p className="text-sm text-blue-800 mb-2">
-                            <strong>Pro tip:</strong> Enable "Auto-engage" to let your agent proactively respond to relevant conversations without requiring @ mentions
+                            <strong>Pro tip:</strong> Your custom agent will now receive Slack messages as tasks and can respond using your business logic
                         </p>
                         <p className="text-xs text-blue-700">
-                            Define conditions when the agent should automatically engage. For example: "When users ask about documentation" or "When someone mentions deployment issues"
+                            The Task object includes user data, message content, and context from Slack threads - perfect for building intelligent conversational agents.
                         </p>
                     </div>
                 </div>

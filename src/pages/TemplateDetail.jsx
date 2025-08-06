@@ -98,10 +98,6 @@ export default function TemplateDetail() {
             </div>
 
             <div className="flex items-center gap-4 text-sm text-gray-600">
-              <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
-                <span>{template.setupTime} setup</span>
-              </div>
               <Badge variant="secondary">{template.category}</Badge>
               {template.popularity && (
                 <Badge className="bg-[#6B4EFF]/10 text-[#6B4EFF]">
@@ -220,7 +216,7 @@ export default function TemplateDetail() {
                         asChild
                       >
                         <a 
-                          href={`https://xpander.ai/create?template=${template.id}`}
+                          href={`https://app.xpander.ai/slack_agents/new?templateId=${template.id}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center justify-center gap-2"
@@ -229,9 +225,6 @@ export default function TemplateDetail() {
                           <ExternalLink className="w-4 h-4" />
                         </a>
                       </Button>
-                      <p className="text-xs text-gray-500 text-center mt-2">
-                        Deploy in {template.setupTime}
-                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -252,7 +245,7 @@ export default function TemplateDetail() {
                   Ready to deploy this template?
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Get your AI agent running in Slack in just {template.setupTime}.
+                  Get your AI agent running in Slack quickly and easily.
                 </p>
                 <Button 
                   size="lg" 
@@ -260,7 +253,7 @@ export default function TemplateDetail() {
                   asChild
                 >
                   <a 
-                    href={`https://xpander.ai/create?template=${template.id}`}
+                    href={`https://app.xpander.ai/slack_agents/new?templateId=${template.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

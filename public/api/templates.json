@@ -1,11 +1,12 @@
 {
   "templates": [
     {
-      "id": "docs-agent-mintlify",
+      "id": "68161edc-f81a-40c9-9b47-c228428a2ae9",
       "slug": "docs-agent-mintlify",
       "name": "Docs Agent (Mintlify Source)",
       "shortDescription": "Deploy a ready-to-use documentation agent that uses Mintlify as its knowledge source. Perfect for instant Q&A and support on your docs.",
       "description": "A pre-configured documentation agent that connects to your Mintlify docs. Features intelligent search, context-aware responses, and seamless integration with your existing documentation workflow.",
+      "fullDescription": "Deploy a ready-to-use documentation agent that uses Mintlify as its knowledge source. Perfect for instant Q&A and support on your docs. This template provides a comprehensive solution for documentation support, automatically indexing your Mintlify documentation and providing intelligent, context-aware responses to user queries. The agent can understand complex documentation structures, provide accurate code examples, and guide users to the most relevant sections of your docs.",
       "category": "Customer Support",
       "icon": "/logos/xpanderai.png",
       "framework": "Agno",
@@ -18,16 +19,16 @@
         "Code snippet extraction",
         "Auto-updates from Mintlify"
       ],
-      "setupTime": "Instant",
       "author": "xpander.ai",
       "authorLink": "https://xpander.ai"
     },
     {
-      "id": "support-multi-agent",
+      "id": "c9df29eb-4739-41cc-8595-9852345caf39",
       "slug": "support-multi-agent",
       "name": "Support multi-agent system",
       "shortDescription": "Automate and streamline your support process with a ready-to-use team of AI agents. Integrates with ticketing and scheduling tools, and deploys easily to Slack.",
       "description": "A comprehensive multi-agent support system that handles tickets, schedules meetings, and provides instant responses. Includes specialized agents for different support scenarios.",
+      "fullDescription": "Automate and streamline your support process with a ready-to-use team of AI agents. This multi-agent system integrates seamlessly with ticketing and scheduling tools, and deploys easily to Slack. The system includes specialized agents for different support scenarios: ticket triage, customer inquiry handling, meeting scheduling, and escalation management. Each agent is designed to work collaboratively, ensuring seamless handoffs and comprehensive customer support coverage.",
       "category": "Customer Support",
       "icon": "/logos/xpanderai.png",
       "framework": "Agno",
@@ -40,7 +41,28 @@
         "Escalation handling",
         "Multi-agent collaboration"
       ],
-      "setupTime": "Instant",
+      "author": "xpander.ai",
+      "authorLink": "https://xpander.ai"
+    },
+    {
+      "id": "f3240158-28ca-4c8b-96c8-a215246002dc",
+      "slug": "coding-agent-claude",
+      "name": "Coding Agent (Claude Code)",
+      "shortDescription": "Automate coding tasks, code review, and GitHub PRs with an AI agent powered by Claude Code.",
+      "description": "A powerful coding agent that handles automated code review, GitHub PR management, and various development tasks. Integrates with code repositories and supports comprehensive development workflows.",
+      "fullDescription": "Automate coding tasks, code review, and GitHub PRs with an AI agent powered by Claude Code. This ready-to-use AI agent is specifically designed for development workflows, capable of finding GitHub issues, generating high-quality code solutions, and opening well-structured Pull Requests. The agent uses Claude Code's advanced capabilities for code analysis, includes Tavily for research when needed, and can send email notifications to keep your team informed of important development activities.",
+      "category": "Development",
+      "icon": "/logos/xpanderai.png",
+      "framework": "Agno",
+      "models": ["All"],
+      "tools": ["Tavily", "Email", "Claude Code"],
+      "features": [
+        "Automated code review",
+        "GitHub PR management",
+        "Code quality analysis",
+        "Repository integration",
+        "Development workflow automation"
+      ],
       "author": "xpander.ai",
       "authorLink": "https://xpander.ai"
     }

@@ -58,18 +58,14 @@ export default function TopBar() {
             >
               Careers
             </a>
-            <a 
-              href="/templates" 
-              className="text-white/90 text-sm font-medium hover:text-white transition-colors"
-            >
-              Agent Templates
-            </a>
-            <a 
-              href="/agents" 
-              className="text-white/90 text-sm font-medium hover:text-white transition-colors"
-            >
-              Slack Agent Directory
-            </a>
+            {featureFlags.templatesEnabled && (
+              <a 
+                href="/templates" 
+                className="text-white/90 text-sm font-medium hover:text-white transition-colors"
+              >
+                Agent Templates
+              </a>
+            )}
           </nav>
         </div>
 
@@ -88,7 +84,7 @@ export default function TopBar() {
             rel="noopener noreferrer" 
             className="text-sm font-medium px-4 py-2 rounded-md bg-white text-purple-600 hover:bg-gray-100 transition-colors whitespace-nowrap shadow-md"
           >
-            Console Access
+            Deploy Agent
           </a>
         </div>
       </div>

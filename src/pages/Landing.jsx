@@ -42,6 +42,7 @@ import FrameworkCarousel from '../components/landing/FrameworkCarousel';
 import PlatformBanner from '../components/landing/PlatformBanner';
 import DeveloperFeaturesSection from '../components/landing/DeveloperFeaturesSection';
 import SlackAgentsSection from '../components/landing/SlackAgentsSection';
+import { featureFlags } from '@/config/featureFlags';
 
 export default function Landing() {
   useEffect(() => {
@@ -146,7 +147,7 @@ export default function Landing() {
           <ProblemSolutionSection />
           <ArchitectureSection />
           <DeveloperFeaturesSection />
-          <SlackAgentsSection />
+          {featureFlags.featuredAgentsEnabled && <SlackAgentsSection />}
           <FAQSection />
           <FinalCTABanner />
           <Footer />

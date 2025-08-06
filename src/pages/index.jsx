@@ -48,9 +48,19 @@ function PagesContent() {
                 
                 
                 <Route path="/Landing" element={<Landing />} />
-                <Route path="/agents" element={<AgentsDirectory />} />
-                <Route path="/agents/submit" element={<SubmitAgent />} />
-                <Route path="/agents/:slug" element={<AgentDetail />} />
+                {featureFlags.preconfiguredAppsEnabled ? (
+                    <>
+                        <Route path="/agents" element={<AgentsDirectory />} />
+                        <Route path="/agents/submit" element={<SubmitAgent />} />
+                        <Route path="/agents/:slug" element={<AgentDetail />} />
+                    </>
+                ) : (
+                    <>
+                        <Route path="/agents" element={<Navigate to="/" replace />} />
+                        <Route path="/agents/submit" element={<Navigate to="/" replace />} />
+                        <Route path="/agents/:slug" element={<Navigate to="/" replace />} />
+                    </>
+                )}
                 {featureFlags.templatesEnabled ? (
                     <>
                         <Route path="/templates" element={<Templates />} />

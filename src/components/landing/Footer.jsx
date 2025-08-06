@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Twitter, Github, Linkedin } from 'lucide-react';
+import { featureFlags } from '@/config/featureFlags';
 
 export default function Footer() {
   return (
@@ -46,20 +47,22 @@ export default function Footer() {
                 Documentation
               </a>
             </div>
-            <div className="flex items-center gap-4 sm:gap-6">
-              <a
-                href="/agents"
-                className="text-gray-600 hover:text-[#6B4EFF] transition-all duration-150 text-sm font-medium"
-              >
-                Slack Agent Directory
-              </a>
-              <a
-                href="/agents/submit"
-                className="text-gray-600 hover:text-[#6B4EFF] transition-all duration-150 text-sm font-medium"
-              >
-                Submit Your Agent
-              </a>
-            </div>
+            {featureFlags.preconfiguredAppsEnabled && (
+              <div className="flex items-center gap-4 sm:gap-6">
+                <a
+                  href="/agents"
+                  className="text-gray-600 hover:text-[#6B4EFF] transition-all duration-150 text-sm font-medium"
+                >
+                  Slack Agent Directory
+                </a>
+                <a
+                  href="/agents/submit"
+                  className="text-gray-600 hover:text-[#6B4EFF] transition-all duration-150 text-sm font-medium"
+                >
+                  Submit Your Agent
+                </a>
+              </div>
+            )}
           </div>
 
           {/* Social Icons */}
@@ -101,8 +104,12 @@ export default function Footer() {
               <h4 className="font-semibold text-gray-700 mb-2">Product</h4>
               <ul className="space-y-1">
                 <li><a href="/" className="hover:text-[#6B4EFF]">Home</a></li>
-                <li><a href="/agents" className="hover:text-[#6B4EFF]">Agent Directory</a></li>
-                <li><a href="/agents/submit" className="hover:text-[#6B4EFF]">Submit Agent</a></li>
+                {featureFlags.preconfiguredAppsEnabled && (
+                  <>
+                    <li><a href="/agents" className="hover:text-[#6B4EFF]">Agent Directory</a></li>
+                    <li><a href="/agents/submit" className="hover:text-[#6B4EFF]">Submit Agent</a></li>
+                  </>
+                )}
                 <li><a href="https://app.xpander.ai/slack_agents/new" className="hover:text-[#6B4EFF]">Create Agent</a></li>
               </ul>
             </div>

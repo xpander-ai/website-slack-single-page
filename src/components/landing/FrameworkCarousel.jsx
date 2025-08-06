@@ -136,7 +136,19 @@ export default function FrameworkCarousel() {
             Works with any agent framework
           </h2>
           <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border-2 border-purple-200 hover:shadow-lg transition-all duration-150 h-full">
+            <button 
+              onClick={() => {
+                const section = document.getElementById('how-it-works');
+                if (section) {
+                  section.scrollIntoView({ behavior: 'smooth' });
+                  setTimeout(() => {
+                    const wizardTabButton = document.querySelector('[data-tab="wizard"]');
+                    if (wizardTabButton) wizardTabButton.click();
+                  }, 800);
+                }
+              }}
+              className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 border-2 border-purple-200 hover:shadow-lg transition-all duration-150 h-full text-left w-full"
+            >
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 bg-purple-200 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -156,8 +168,20 @@ export default function FrameworkCarousel() {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="bg-white rounded-xl p-6 border border-gray-200 hover:border-purple-200 hover:shadow-lg transition-all duration-150 h-full">
+            </button>
+            <button 
+              onClick={() => {
+                const section = document.getElementById('how-it-works');
+                if (section) {
+                  section.scrollIntoView({ behavior: 'smooth' });
+                  setTimeout(() => {
+                    const codeTabButton = document.querySelector('[data-tab="code"]');
+                    if (codeTabButton) codeTabButton.click();
+                  }, 800);
+                }
+              }}
+              className="bg-white rounded-xl p-6 border border-gray-200 hover:border-purple-200 hover:shadow-lg transition-all duration-150 h-full text-left w-full"
+            >
               <div className="flex flex-col h-full">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -166,13 +190,14 @@ export default function FrameworkCarousel() {
                   <div className="flex-1">
                     <h3 className="font-semibold text-gray-900 mb-2">Instrument your existing agent</h3>
                     <p className="text-sm text-gray-600 mb-4">Add xpander.ai SDK to your existing agent code and deploy it to run on our platform. Receives Slack events automatically</p>
-                    <div className="text-xs text-gray-500 font-medium">
-                      <p>Coming soon</p>
+                    <div className="text-xs text-purple-700 font-medium">
+                      <p>Available now:</p>
+                      <p className="mt-1">Python SDK + Any AI framework</p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </button>
           </div>
         </motion.div>
       </div>

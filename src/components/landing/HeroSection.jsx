@@ -338,7 +338,16 @@ export default function HeroSection() {
 
   const handleQuickStartClick = () => {
     const section = document.getElementById('how-it-works');
-    if (section) section.scrollIntoView({ behavior: 'smooth' });
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      // Wait for scroll to finish, then switch to "Bring Your Own Code" tab
+      setTimeout(() => {
+        const codeTabButton = document.querySelector('[data-tab="code"]');
+        if (codeTabButton) {
+          codeTabButton.click();
+        }
+      }, 800);
+    }
   };
 
   const handleSlackExamplesClick = () => {
@@ -443,7 +452,7 @@ export default function HeroSection() {
                     onClick={handleQuickStartClick}
                     className="gradient-bg hover-lift text-white font-semibold"
                   >
-                    Create & Deploy Agent Now
+                    Instrument your existing agent
                   </Button>
                   <p className="text-xs text-gray-500 mt-2 text-center sm:text-left">5 minutes • No credit card required</p>
                 </div>
