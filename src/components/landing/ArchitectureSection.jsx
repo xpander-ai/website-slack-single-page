@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MessageSquare, Bot, Server, Database, Eye, Wrench, ArrowRight, GitBranch, Zap, Brain, Workflow, Shield, Clock, FileSearch } from 'lucide-react';
+import { MessageSquare, Bot, Server, Database, Eye, Wrench, ArrowRight, GitBranch, Zap, Brain, Workflow, Shield, FileSearch } from 'lucide-react';
 
 const Tooltip = ({ children, content }) => {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -105,28 +105,26 @@ export default function ArchitectureSection() {
                     <p className="text-sm text-gray-600 mb-4">Your choice of AI framework</p>
                     <div className="space-y-3 flex-1">
                       <div className="bg-white/70 rounded-lg p-3 border border-blue-200">
-                        <div className="flex items-center justify-between mb-2">
+                        <div className="mb-2">
                           <p className="text-xs font-medium text-gray-700">Serverless Runtime</p>
-                          <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">Available</span>
                         </div>
                         <p className="text-xs text-gray-500 mb-1">Preconfigured AI connectivity & managed agent loop</p>
                         <div className="flex items-center gap-1.5 flex-wrap">
                           <span className="text-[10px] text-gray-400">
-                            <img src="/logos/agno.png" alt="" className="inline opacity-70" style={{ height: '0.75em', width: 'auto', marginRight: '0.1em', verticalAlign: '-0.1em' }} />Agno Runtime
+                            <img src="/logos/agno.png" alt="" className="inline opacity-70" style={{ height: '0.75em', width: 'auto', marginRight: '0.25em', verticalAlign: '-0.1em' }} />Agno Runtime
                           </span>
-                          <span className="text-[10px] text-gray-400">•</span>
-                          <span className="text-[10px] text-gray-400">OpenAI Models</span>
+                          <span className="text-[10px] text-gray-400">• OpenAI Models</span>
                         </div>
                       </div>
-                      <div className="bg-white/70 rounded-lg p-3 border border-gray-200 opacity-60">
-                        <div className="flex items-center justify-between mb-2">
+                      <div className="bg-white rounded-lg p-3 border border-gray-200">
+                        <div className="mb-2">
                           <p className="text-xs font-medium text-gray-700">Custom Agent</p>
-                          <div className="flex items-center gap-1">
-                            <Clock className="w-3 h-3 text-amber-600" />
-                            <span className="text-xs text-amber-600 font-medium">Coming Soon</span>
-                          </div>
                         </div>
-                        <p className="text-xs text-gray-500">Bring your own agent code with full control</p>
+                        <p className="text-xs text-gray-600">Bring your own agent code with full control</p>
+                        <div className="flex items-center gap-1 mt-1">
+                          <span className="text-[10px] text-gray-400">•</span>
+                          <span className="text-[10px] text-gray-400">Any model</span>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
