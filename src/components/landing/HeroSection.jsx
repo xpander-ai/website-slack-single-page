@@ -1,33 +1,50 @@
-
-import React, { useState, useEffect, useRef } from 'react';
-import { Button } from '@/components/ui/button';
-import { Bot, User, PlusCircle, Loader, FileText, Download, ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Bot,
+  User,
+  PlusCircle,
+  Loader,
+  FileText,
+  Download,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Function to generate realistic timestamps
 const generateTimestamp = (offsetSeconds = 0) => {
   const now = new Date();
   now.setSeconds(now.getSeconds() - offsetSeconds);
-  
+
   // If less than 60 seconds ago, show "Just now"
   if (offsetSeconds < 60) {
-    return 'Just now';
+    return "Just now";
   }
-  
+
   // Otherwise show time
-  return now.toLocaleTimeString('en-US', { 
-    hour: 'numeric', 
-    minute: '2-digit',
-    hour12: true 
+  return now.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
   });
 };
 
 // Typing indicator component
 const TypingIndicator = () => (
   <div className="flex items-center gap-1 px-3 py-1">
-    <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '0ms' }}></div>
-    <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '200ms' }}></div>
-    <div className="w-2 h-2 bg-gray-400 rounded-full animate-pulse" style={{ animationDelay: '400ms' }}></div>
+    <div
+      className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"
+      style={{ animationDelay: "0ms" }}
+    ></div>
+    <div
+      className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"
+      style={{ animationDelay: "200ms" }}
+    ></div>
+    <div
+      className="w-2 h-2 bg-gray-400 rounded-full animate-pulse"
+      style={{ animationDelay: "400ms" }}
+    ></div>
   </div>
 );
 
@@ -37,8 +54,14 @@ const SlackTypingIndicator = ({ user }) => (
     <span>{user} is thinking</span>
     <div className="flex items-center gap-0.5">
       <div className="w-1 h-1 bg-gray-500 rounded-full animate-pulse opacity-75"></div>
-      <div className="w-1 h-1 bg-gray-500 rounded-full animate-pulse opacity-75" style={{ animationDelay: '200ms' }}></div>
-      <div className="w-1 h-1 bg-gray-500 rounded-full animate-pulse opacity-75" style={{ animationDelay: '400ms' }}></div>
+      <div
+        className="w-1 h-1 bg-gray-500 rounded-full animate-pulse opacity-75"
+        style={{ animationDelay: "200ms" }}
+      ></div>
+      <div
+        className="w-1 h-1 bg-gray-500 rounded-full animate-pulse opacity-75"
+        style={{ animationDelay: "400ms" }}
+      ></div>
     </div>
   </div>
 );
@@ -46,155 +69,193 @@ const SlackTypingIndicator = ({ user }) => (
 // Demo scenarios
 const demoScenarios = [
   {
-    id: 'file-processing',
+    id: "file-processing",
     conversationFlow: [
-      { type: 'reset', delay: 0 },
+      { type: "reset", delay: 0 },
       {
-        type: 'message',
+        type: "message",
         delay: 1000,
         payload: {
-          user: 'Thomas Anderson',
-          text: 'Can you complete this excel for me?',
+          user: "Thomas Anderson",
+          text: "Can you complete this excel for me?",
           components: [
-            { type: 'file_attachment', fileName: 'AI_Startups_Q3.xlsx', fileSize: '15 KB' }
+            {
+              type: "file_attachment",
+              fileName: "AI_Startups_Q3.xlsx",
+              fileSize: "15 KB",
+            },
           ],
           reaction: null,
-        }
+        },
       },
-      { type: 'add_reaction', delay: 10, payload: { messageIndex: 0, reaction: '⏳' } },
-      { type: 'thinking', delay: 800, payload: { active: true } },
       {
-        type: 'message',
+        type: "add_reaction",
+        delay: 10,
+        payload: { messageIndex: 0, reaction: "⏳" },
+      },
+      { type: "thinking", delay: 800, payload: { active: true } },
+      {
+        type: "message",
         delay: 2500,
         payload: {
           bot: true,
           isXpander: true,
-          user: 'xpander.ai',
-          isTyping: true
-        }
+          user: "xpander.ai",
+          isTyping: true,
+        },
       },
-      { type: 'wait', delay: 3000 },
+      { type: "wait", delay: 3000 },
       {
-        type: 'update_message',
+        type: "update_message",
         delay: 0,
         payload: {
           messageIndex: 1,
           updates: {
             text: 'Of course. It looks like the "Number of Employees" column is missing. I will now work on finding that information for each company.',
-            isTyping: false
-          }
-        }
+            isTyping: false,
+          },
+        },
       },
-      { type: 'thinking', delay: 10, payload: { active: false } },
-      { type: 'update_reaction', delay: 100, payload: { messageIndex: 0, reaction: '✅' } },
-      { type: 'thinking', delay: 1500, payload: { active: true } },
-      { type: 'wait', delay: 2500 },
+      { type: "thinking", delay: 10, payload: { active: false } },
       {
-        type: 'message',
+        type: "update_reaction",
+        delay: 100,
+        payload: { messageIndex: 0, reaction: "✅" },
+      },
+      { type: "thinking", delay: 1500, payload: { active: true } },
+      { type: "wait", delay: 2500 },
+      {
+        type: "message",
         delay: 1000,
         payload: {
           bot: true,
           isXpander: true,
-          user: 'xpander.ai',
-          isTyping: true
-        }
+          user: "xpander.ai",
+          isTyping: true,
+        },
       },
-      { type: 'wait', delay: 2500 },
+      { type: "wait", delay: 2500 },
       {
-        type: 'update_message',
+        type: "update_message",
         delay: 0,
         payload: {
           messageIndex: 2,
           updates: {
             isTyping: false,
             components: [
-              { type: 'paragraph', content: "All done! I've updated the file with the employee counts." },
-              { type: 'file_attachment', fileName: 'AI_Startups_Q3_completed.xlsx', fileSize: '18 KB' },
-              { type: 'actions', buttons: [{ text: 'Download Updated File', icon: Download }] }
-            ]
-          }
-        }
+              {
+                type: "paragraph",
+                content:
+                  "All done! I've updated the file with the employee counts.",
+              },
+              {
+                type: "file_attachment",
+                fileName: "AI_Startups_Q3_completed.xlsx",
+                fileSize: "18 KB",
+              },
+              {
+                type: "actions",
+                buttons: [{ text: "Download Updated File", icon: Download }],
+              },
+            ],
+          },
+        },
       },
-      { type: 'thinking', delay: 500, payload: { active: false } },
-      { type: 'wait', delay: 6000 }  // Give readers time to read the conversation
-    ]
+      { type: "thinking", delay: 500, payload: { active: false } },
+      { type: "wait", delay: 6000 }, // Give readers time to read the conversation
+    ],
   },
   {
-    id: 'api-debugging',
+    id: "api-debugging",
     conversationFlow: [
-      { type: 'reset', delay: 0 },
+      { type: "reset", delay: 0 },
       {
-        type: 'message',
+        type: "message",
         delay: 1000,
         payload: {
-          user: 'Alex Chen',
-          text: 'Hey, anyone seeing 500 errors on the payment API? Users are complaining they can\'t checkout.',
-          time: '3:24 PM'
-        }
+          user: "Alex Chen",
+          text: "Hey, anyone seeing 500 errors on the payment API? Users are complaining they can't checkout.",
+          time: "3:24 PM",
+        },
       },
       {
-        type: 'message',
+        type: "message",
         delay: 2000,
         payload: {
-          user: 'Jordan Kim',
-          text: 'Yeah, I\'m getting reports too. Let me check the logs...',
-          time: '3:25 PM'
-        }
+          user: "Jordan Kim",
+          text: "Yeah, I'm getting reports too. Let me check the logs...",
+          time: "3:25 PM",
+        },
       },
-      { type: 'thinking', delay: 1000, payload: { active: true } },
+      { type: "thinking", delay: 1000, payload: { active: true } },
       {
-        type: 'message',
+        type: "message",
         delay: 3000,
         payload: {
           bot: true,
           isXpander: true,
-          user: 'xpander.ai',
-          isTyping: true
-        }
+          user: "xpander.ai",
+          isTyping: true,
+        },
       },
-      { type: 'wait', delay: 3500 },
+      { type: "wait", delay: 3500 },
       {
-        type: 'update_message',
+        type: "update_message",
         delay: 0,
         payload: {
           messageIndex: 2,
           updates: {
             isTyping: false,
             components: [
-              { type: 'paragraph', content: 'I\'ve already analyzed the logs. There\'s a database connection timeout in the payment service:' },
               {
-              type: 'code_block',
-                content: '[ERROR] payment-service-prod\nConnection timeout: database pool exhausted\nDuration: 30.2s (timeout: 30s)'
+                type: "paragraph",
+                content:
+                  "I've already analyzed the logs. There's a database connection timeout in the payment service:",
               },
-              { type: 'paragraph', content: 'The connection pool is maxed out. This started 23 minutes ago.' },
-              { type: 'actions', buttons: [{ text: 'Scale DB Pool', icon: PlusCircle }, { text: 'View Full Logs', icon: FileText }] }
-            ]
-          }
-        }
+              {
+                type: "code_block",
+                content:
+                  "[ERROR] payment-service-prod\nConnection timeout: database pool exhausted\nDuration: 30.2s (timeout: 30s)",
+              },
+              {
+                type: "paragraph",
+                content:
+                  "The connection pool is maxed out. This started 23 minutes ago.",
+              },
+              {
+                type: "actions",
+                buttons: [
+                  { text: "Scale DB Pool", icon: PlusCircle },
+                  { text: "View Full Logs", icon: FileText },
+                ],
+              },
+            ],
+          },
+        },
       },
-      { type: 'thinking', delay: 10, payload: { active: false } },
-      { type: 'wait', delay: 2000 },
+      { type: "thinking", delay: 10, payload: { active: false } },
+      { type: "wait", delay: 2000 },
       {
-        type: 'message',
+        type: "message",
         delay: 1500,
         payload: {
-          user: 'Jordan Kim',
-          text: 'Whoa, how did this just happen?',
-          time: '3:26 PM'
-        }
+          user: "Jordan Kim",
+          text: "Whoa, how did this just happen?",
+          time: "3:26 PM",
+        },
       },
       {
-        type: 'message',
+        type: "message",
         delay: 2500,
         payload: {
-          user: 'Alex Chen',
-          text: 'Remember the AWS MCP EKS Agent we built? I added the Slack App with xpander.ai in 10 minutes, cool ah? 😎',
-          time: '3:27 PM'
-        }
+          user: "Alex Chen",
+          text: "Remember the AWS MCP EKS Agent we built? I added the Slack App with xpander.ai in 10 minutes, cool ah? 😎",
+          time: "3:27 PM",
+        },
       },
-      { type: 'wait', delay: 6000 }  // Give readers time to read the conversation
-    ]
-  }
+      { type: "wait", delay: 6000 }, // Give readers time to read the conversation
+    ],
+  },
 ];
 
 export default function HeroSection() {
@@ -221,7 +282,7 @@ export default function HeroSection() {
     if (flowIndexRef.current >= currentFlow.length) {
       demoSwitchTimeoutRef.current = setTimeout(() => {
         if (!isPaused) {
-          setCurrentDemo(prev => (prev + 1) % demoScenarios.length);
+          setCurrentDemo((prev) => (prev + 1) % demoScenarios.length);
           flowIndexRef.current = 0;
         }
       }, 500);
@@ -233,15 +294,15 @@ export default function HeroSection() {
 
     timeoutRef.current = setTimeout(() => {
       switch (step.type) {
-        case 'reset':
+        case "reset":
           setDisplayedMessages([]);
           setIsThinking(false);
           break;
-        case 'message':
-          setDisplayedMessages(prev => [...prev, step.payload]);
+        case "message":
+          setDisplayedMessages((prev) => [...prev, step.payload]);
           break;
-        case 'add_reaction':
-          setDisplayedMessages(prev =>
+        case "add_reaction":
+          setDisplayedMessages((prev) =>
             prev.map((msg, idx) =>
               idx === step.payload.messageIndex
                 ? { ...msg, reaction: step.payload.reaction }
@@ -249,8 +310,8 @@ export default function HeroSection() {
             )
           );
           break;
-        case 'update_reaction':
-          setDisplayedMessages(prev =>
+        case "update_reaction":
+          setDisplayedMessages((prev) =>
             prev.map((msg, idx) =>
               idx === step.payload.messageIndex
                 ? { ...msg, reaction: step.payload.reaction }
@@ -258,11 +319,11 @@ export default function HeroSection() {
             )
           );
           break;
-        case 'thinking':
+        case "thinking":
           setIsThinking(step.payload.active);
           break;
-        case 'update_message':
-          setDisplayedMessages(prev =>
+        case "update_message":
+          setDisplayedMessages((prev) =>
             prev.map((msg, idx) =>
               idx === step.payload.messageIndex
                 ? { ...msg, ...step.payload.updates }
@@ -270,10 +331,10 @@ export default function HeroSection() {
             )
           );
           break;
-        case 'wait':
+        case "wait":
           break;
         default:
-          console.warn('Unknown step type:', step.type);
+          console.warn("Unknown step type:", step.type);
           break;
       }
       flowIndexRef.current++;
@@ -311,7 +372,7 @@ export default function HeroSection() {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTo({
         top: chatContainerRef.current.scrollHeight,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   }, [displayedMessages]);
@@ -333,13 +394,15 @@ export default function HeroSection() {
     if (demoSwitchTimeoutRef.current) {
       clearTimeout(demoSwitchTimeoutRef.current);
     }
-    setCurrentDemo((prev) => (prev - 1 + demoScenarios.length) % demoScenarios.length);
+    setCurrentDemo(
+      (prev) => (prev - 1 + demoScenarios.length) % demoScenarios.length
+    );
   };
 
   const handleQuickStartClick = () => {
-    const section = document.getElementById('how-it-works');
+    const section = document.getElementById("how-it-works");
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: "smooth" });
       // Wait for scroll to finish, then switch to wizard tab (blueprints)
       setTimeout(() => {
         const wizardTabButton = document.querySelector('[data-tab="wizard"]');
@@ -351,45 +414,73 @@ export default function HeroSection() {
   };
 
   const handleSlackExamplesClick = () => {
-    const section = document.getElementById('use-cases');
-    if (section) section.scrollIntoView({ behavior: 'smooth' });
+    const section = document.getElementById("use-cases");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
   const renderMessageText = (message) => {
     if (!message.text) return null;
-    return <div className="text-xs sm:text-sm leading-relaxed text-gray-600 break-words overflow-hidden">{message.text}</div>;
+    return (
+      <div className="text-xs sm:text-sm leading-relaxed text-gray-600 break-words overflow-hidden">
+        {message.text}
+      </div>
+    );
   };
 
   const renderMessageComponents = (components) => (
     <div className="space-y-2 sm:space-y-3 mt-2">
       {components.map((component, index) => {
         switch (component.type) {
-          case 'paragraph':
-            return <p key={index} className="text-xs sm:text-sm text-gray-700 break-words overflow-hidden">{component.content}</p>;
-          case 'file_attachment':
+          case "paragraph":
             return (
-              <div key={index} className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg border border-gray-200">
+              <p
+                key={index}
+                className="text-xs sm:text-sm text-gray-700 break-words overflow-hidden"
+              >
+                {component.content}
+              </p>
+            );
+          case "file_attachment":
+            return (
+              <div
+                key={index}
+                className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-gray-50 rounded-lg border border-gray-200"
+              >
                 <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-green-100 text-green-600 flex items-center justify-center rounded-md">
                   <FileText className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-xs sm:text-sm font-medium text-gray-800 hover:text-indigo-600 cursor-pointer truncate">{component.fileName}</p>
+                  <p className="text-xs sm:text-sm font-medium text-gray-800 hover:text-indigo-600 cursor-pointer truncate">
+                    {component.fileName}
+                  </p>
                   <p className="text-xs text-gray-500">{component.fileSize}</p>
                 </div>
               </div>
             );
-          case 'code_block':
+          case "code_block":
             return (
-              <div key={index} className="bg-gray-900 rounded-lg p-2 sm:p-3 mt-2 overflow-hidden">
-                <pre className="text-xs text-gray-300 font-mono break-words whitespace-pre-wrap overflow-hidden">{component.content}</pre>
+              <div
+                key={index}
+                className="bg-gray-900 rounded-lg p-2 sm:p-3 mt-2 overflow-hidden"
+              >
+                <pre className="text-xs text-gray-300 font-mono break-words whitespace-pre-wrap overflow-hidden">
+                  {component.content}
+                </pre>
               </div>
             );
-          case 'actions':
+          case "actions":
             return (
               <div key={index} className="flex gap-2 pt-1 flex-wrap">
                 {component.buttons.map((button, i) => (
-                  <Button key={i} size="sm" variant="outline" className="bg-white text-xs">
-                    {button.icon && <button.icon className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />}
+                  <Button
+                    key={i}
+                    size="sm"
+                    variant="outline"
+                    className="bg-white text-xs"
+                  >
+                    {button.icon && (
+                      <button.icon className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+                    )}
                     <span className="truncate">{button.text}</span>
                   </Button>
                 ))}
@@ -404,20 +495,23 @@ export default function HeroSection() {
 
   const getUserAvatar = (username) => {
     const userColors = {
-      'Thomas Anderson': 'bg-blue-500',
-      'Alex Chen': 'bg-green-500',
-      'Jordan Kim': 'bg-purple-500'
+      "Thomas Anderson": "bg-blue-500",
+      "Alex Chen": "bg-green-500",
+      "Jordan Kim": "bg-purple-500",
     };
 
     const getInitials = (name) => {
-      const parts = name.split(' ');
+      const parts = name.split(" ");
       if (parts.length > 1) {
-        return parts.map(n => n[0]).join('').toUpperCase();
+        return parts
+          .map((n) => n[0])
+          .join("")
+          .toUpperCase();
       }
       return name.substring(0, 2).toUpperCase();
     };
 
-    const colorClass = userColors[username] || 'bg-gray-500';
+    const colorClass = userColors[username] || "bg-gray-500";
     const initials = getInitials(username);
 
     return { colorClass, initials };
@@ -432,15 +526,55 @@ export default function HeroSection() {
             <div className="space-y-6 lg:space-y-10">
               <div className="space-y-4">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900">
-                  Make your AI agent <span className="gradient-text">Slack-native</span> in few minutes.
+                  Make your AI agent{" "}
+                  <span className="gradient-text">Slack-native</span> in few
+                  minutes.
                 </h1>
 
                 <div className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-lg leading-relaxed space-y-3">
-                  <p className="font-medium text-gray-800">Why teams choose <a href="/agents" className="text-[#6B4EFF] hover:underline">xpander.ai</a>:</p>
+                  <p className="font-medium text-gray-800">
+                    Why teams choose{" "}
+                    <a
+                      href="/agents"
+                      className="text-[#6B4EFF] hover:underline"
+                    >
+                      xpander.ai
+                    </a>
+                    :
+                  </p>
                   <ul className="space-y-2 text-sm sm:text-base md:text-lg lg:text-lg">
-                    <li className="flex items-start gap-2"><span className="text-purple-500 mt-1.5 flex-shrink-0"> • </span><span>Smart Engage saves 80%+ on LLM costs by pre-screening messages before invoking your agent</span></li>
-                    <li className="flex items-start gap-2"><span className="text-purple-500 mt-1.5 flex-shrink-0"> • </span><span>Built-in OAuth handles user authentication for dozens of SaaS platforms like GitHub, Jira, Google, and many more. No security code needed</span></li>
-                    <li className="flex items-start gap-2"><span className="text-purple-500 mt-1.5 flex-shrink-0"> • </span><span>Automatically converts files, images, and voice messages to text so your agent gets clean input without extra work</span></li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-500 mt-1.5 flex-shrink-0">
+                        {" "}
+                        •{" "}
+                      </span>
+                      <span>
+                        Smart Engage saves 80%+ on LLM costs by pre-screening
+                        messages before invoking your agent
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-500 mt-1.5 flex-shrink-0">
+                        {" "}
+                        •{" "}
+                      </span>
+                      <span>
+                        Built-in OAuth handles user authentication for dozens of
+                        SaaS platforms like GitHub, Jira, Google, and many more.
+                        No security code needed
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-purple-500 mt-1.5 flex-shrink-0">
+                        {" "}
+                        •{" "}
+                      </span>
+                      <span>
+                        Automatically converts files, images, and voice messages
+                        to text so your agent gets clean input without extra
+                        work
+                      </span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -454,7 +588,9 @@ export default function HeroSection() {
                   >
                     Create & Deploy Agent Now
                   </Button>
-                  <p className="text-xs text-gray-500 mt-2 text-center sm:text-left">~5 minutes • No credit card required</p>
+                  <p className="text-xs text-gray-500 mt-2 text-center sm:text-left">
+                    ~5 minutes • No credit card required
+                  </p>
                 </div>
                 <Button
                   size="default"
@@ -469,14 +605,14 @@ export default function HeroSection() {
           </div>
 
           {/* Right Column - Interactive Demo - Shows second on mobile */}
-          <div className="lg:col-span-6 flex justify-center order-2 mt-8 lg:mt-0">
+          <div className="lg:col-span-6 flex justify-center order-2 mt-8 lg:mt-0 flex-col gap-4 items-center">
             <div className="w-full max-w-sm sm:max-w-md lg:max-w-lg relative group">
               {/* Navigation Arrows - Visible on mobile, hover on desktop */}
               <button
                 onClick={prevDemo}
                 className="absolute left-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md hover:bg-white transition-all duration-150 block lg:opacity-0 lg:group-hover:opacity-100"
                 aria-label="Previous demo"
-                style={{ touchAction: 'manipulation' }}
+                style={{ touchAction: "manipulation" }}
               >
                 <ChevronLeft className="w-5 h-5 text-gray-700" />
               </button>
@@ -485,12 +621,12 @@ export default function HeroSection() {
                 onClick={nextDemo}
                 className="absolute right-2 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 backdrop-blur-sm rounded-full shadow-md hover:bg-white transition-all duration-150 block lg:opacity-0 lg:group-hover:opacity-100"
                 aria-label="Next demo"
-                style={{ touchAction: 'manipulation' }}
+                style={{ touchAction: "manipulation" }}
               >
                 <ChevronRight className="w-5 h-5 text-gray-700" />
               </button>
 
-              <div 
+              <div
                 className="bg-white rounded-xl lg:rounded-2xl shadow-xl overflow-hidden hover-lift"
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
@@ -506,14 +642,17 @@ export default function HeroSection() {
                         <div className="w-2 h-2 lg:w-3 lg:h-3 bg-green-500 rounded-full"></div>
                       </div>
                       <span className="text-white text-xs lg:text-sm font-medium">
-                        {currentDemo === 0 ? '#agent-demo' : '#dev-alerts'}
+                        {currentDemo === 0 ? "#agent-demo" : "#dev-alerts"}
                       </span>
                     </div>
                   </div>
 
                   {/* Chat Interface */}
                   <div className="bg-white rounded-lg p-2 sm:p-3 lg:p-4 h-[280px] sm:h-[320px] lg:h-[400px] flex flex-col overflow-hidden">
-                    <div ref={chatContainerRef} className="flex-1 space-y-2 sm:space-y-3 lg:space-y-4 pb-2 sm:pb-3 overflow-y-auto scroll-smooth">
+                    <div
+                      ref={chatContainerRef}
+                      className="flex-1 space-y-2 sm:space-y-3 lg:space-y-4 pb-2 sm:pb-3 overflow-y-auto scroll-smooth"
+                    >
                       {displayedMessages.map((message, index) => (
                         <motion.div
                           key={index}
@@ -523,14 +662,24 @@ export default function HeroSection() {
                           className="flex gap-2 sm:gap-3 items-start min-w-0"
                         >
                           {message.bot ? (
-                            <div className={`w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${isThinking && message.isXpander ? 'animate-pulse' : ''}`}>
-                              <img src="/xpander-logo-purple.png" alt="xpander.ai" className="w-full h-full object-cover" />
+                            <div
+                              className={`w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden ${isThinking && message.isXpander ? "animate-pulse" : ""}`}
+                            >
+                              <img
+                                src="/xpander-logo-purple.png"
+                                alt="xpander.ai"
+                                className="w-full h-full object-cover"
+                              />
                             </div>
                           ) : (
                             (() => {
-                              const { colorClass, initials } = getUserAvatar(message.user);
+                              const { colorClass, initials } = getUserAvatar(
+                                message.user
+                              );
                               return (
-                                <div className={`w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${colorClass} text-white font-semibold text-xs lg:text-sm`}>
+                                <div
+                                  className={`w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${colorClass} text-white font-semibold text-xs lg:text-sm`}
+                                >
                                   {initials}
                                 </div>
                               );
@@ -539,16 +688,30 @@ export default function HeroSection() {
 
                           <div className="flex-1 min-w-0 overflow-hidden">
                             <div className="flex items-center gap-1 sm:gap-2 mb-1">
-                              <span className={`font-semibold text-xs sm:text-sm text-gray-900 truncate ${isThinking && message.bot && message.isXpander ? 'animate-pulse' : ''}`}>{message.user}</span>
-                              <span className="text-xs text-gray-500 flex-shrink-0">{generateTimestamp(Math.max(0, (displayedMessages.length - index - 1) * 30))}</span>
+                              <span
+                                className={`font-semibold text-xs sm:text-sm text-gray-900 truncate ${isThinking && message.bot && message.isXpander ? "animate-pulse" : ""}`}
+                              >
+                                {message.user}
+                              </span>
+                              <span className="text-xs text-gray-500 flex-shrink-0">
+                                {generateTimestamp(
+                                  Math.max(
+                                    0,
+                                    (displayedMessages.length - index - 1) * 30
+                                  )
+                                )}
+                              </span>
                             </div>
-                            <div className={`overflow-hidden ${isThinking && message.bot && message.isXpander ? 'animate-pulse' : ''}`}>
+                            <div
+                              className={`overflow-hidden ${isThinking && message.bot && message.isXpander ? "animate-pulse" : ""}`}
+                            >
                               {message.isTyping ? (
                                 <TypingIndicator />
                               ) : (
                                 <>
                                   {renderMessageText(message)}
-                                  {message.components && renderMessageComponents(message.components)}
+                                  {message.components &&
+                                    renderMessageComponents(message.components)}
                                 </>
                               )}
                             </div>
@@ -568,7 +731,10 @@ export default function HeroSection() {
                     <div className="mt-auto pt-1 sm:pt-2 flex-shrink-0">
                       <div className="bg-gray-50 border border-gray-200 rounded-lg p-1.5 sm:p-2 lg:p-3">
                         <div className="flex items-center gap-2 text-gray-500 text-xs">
-                          <span className="truncate">Message {currentDemo === 0 ? '#agent-demo' : '#dev-alerts'}</span>
+                          <span className="truncate">
+                            Message{" "}
+                            {currentDemo === 0 ? "#agent-demo" : "#dev-alerts"}
+                          </span>
                         </div>
                       </div>
 
@@ -590,12 +756,29 @@ export default function HeroSection() {
                     key={index}
                     onClick={() => setCurrentDemo(index)}
                     className={`w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full transition-colors ${
-                      index === currentDemo ? 'bg-[#6B4EFF]' : 'bg-gray-300 hover:bg-gray-400'
+                      index === currentDemo
+                        ? "bg-[#6B4EFF]"
+                        : "bg-gray-300 hover:bg-gray-400"
                     }`}
                     aria-label={`Go to demo ${index + 1}`}
                   />
                 ))}
               </div>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <a
+                href="https://www.producthunt.com/products/xpander-ai-slack-native-agents?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-xpander-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1000232&theme=light&t=1754557792909"
+                  alt="xpander.ai - Turn AI Agents into Slack native teammates | Product Hunt"
+                  style={{ width: 250, height: 54 }}
+                  width={250}
+                  height={54}
+                />
+              </a>
             </div>
           </div>
         </div>
