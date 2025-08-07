@@ -290,7 +290,7 @@ export default function HowItWorksSection() {
                         <ol className="space-y-3 text-sm text-gray-600">
                             <li className="flex items-start gap-2">
                                 <span className="font-semibold text-gray-700">1.</span>
-                                <span>Go to <a href="https://app.xpander.ai/slack_agents/new" target="_blank" rel="noopener noreferrer" className="text-[#6B4EFF] hover:underline font-medium">app.xpander.ai/slack_agents/new</a></span>
+                                <span>Go to <a href="https://app.xpander.ai/slack_agents/new/?utm=slack" target="_blank" rel="noopener noreferrer" className="text-[#6B4EFF] hover:underline font-medium">app.xpander.ai/slack_agents/new</a></span>
                             </li>
                             <li className="flex items-start gap-2">
                                 <span className="font-semibold text-gray-700">2.</span>

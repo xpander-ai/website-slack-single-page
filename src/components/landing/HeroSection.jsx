@@ -340,11 +340,11 @@ export default function HeroSection() {
     const section = document.getElementById('how-it-works');
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
-      // Wait for scroll to finish, then switch to "Bring Your Own Code" tab
+      // Wait for scroll to finish, then switch to wizard tab (blueprints)
       setTimeout(() => {
-        const codeTabButton = document.querySelector('[data-tab="code"]');
-        if (codeTabButton) {
-          codeTabButton.click();
+        const wizardTabButton = document.querySelector('[data-tab="wizard"]');
+        if (wizardTabButton) {
+          wizardTabButton.click();
         }
       }, 800);
     }
@@ -432,7 +432,7 @@ export default function HeroSection() {
             <div className="space-y-6 lg:space-y-10">
               <div className="space-y-4">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-gray-900">
-                  Make your AI agent <span className="gradient-text">Slack-native</span> in under an hour.
+                  Make your AI agent <span className="gradient-text">Slack-native</span> in few minutes.
                 </h1>
 
                 <div className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-lg leading-relaxed space-y-3">
@@ -452,9 +452,9 @@ export default function HeroSection() {
                     onClick={handleQuickStartClick}
                     className="gradient-bg hover-lift text-white font-semibold"
                   >
-                    Instrument your existing agent
+                    Create & Deploy Agent Now
                   </Button>
-                  <p className="text-xs text-gray-500 mt-2 text-center sm:text-left">5 minutes • No credit card required</p>
+                  <p className="text-xs text-gray-500 mt-2 text-center sm:text-left">~5 minutes • No credit card required</p>
                 </div>
                 <Button
                   size="default"

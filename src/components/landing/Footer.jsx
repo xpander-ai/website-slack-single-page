@@ -110,7 +110,7 @@ export default function Footer() {
                     <li><a href="/agents/submit" className="hover:text-[#6B4EFF]">Submit Agent</a></li>
                   </>
                 )}
-                <li><a href="https://app.xpander.ai/slack_agents/new" className="hover:text-[#6B4EFF]">Create Agent</a></li>
+                <li><a href="https://app.xpander.ai/slack_agents/new/?utm=slack" className="hover:text-[#6B4EFF]">Create Agent</a></li>
               </ul>
             </div>
             <div>
@@ -125,7 +125,6 @@ export default function Footer() {
             <div>
               <h4 className="font-semibold text-gray-700 mb-2">Company</h4>
               <ul className="space-y-1">
-                <li><a href="https://xpander.ai/about" className="hover:text-[#6B4EFF]">About</a></li>
                 <li><a href="https://xpander.ai/careers" className="hover:text-[#6B4EFF]">Careers</a></li>
                 <li><a href="https://xpander.ai/contact" className="hover:text-[#6B4EFF]">Contact</a></li>
                 <li><a href="https://status.xpander.ai" className="hover:text-[#6B4EFF]">Status</a></li>
@@ -136,7 +135,7 @@ export default function Footer() {
               <ul className="space-y-1">
                 <li><a href="https://xpander.ai/privacy-policy/" className="hover:text-[#6B4EFF]">Privacy Policy</a></li>
                 <li><a href="https://xpander.ai/terms-of-service/" className="hover:text-[#6B4EFF]">Terms of Service</a></li>
-                <li><a href="https://xpander.ai/security" className="hover:text-[#6B4EFF]">Security</a></li>
+                <li><a href="https://trust.xpander.ai" className="hover:text-[#6B4EFF]">Security</a></li>
                 <li><a href="/sitemap.xml" className="hover:text-[#6B4EFF]">Sitemap</a></li>
               </ul>
             </div>

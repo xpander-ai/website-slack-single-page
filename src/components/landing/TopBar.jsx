@@ -79,12 +79,12 @@ export default function TopBar() {
             Schedule a Demo
           </a>
           <a 
-            href="https://app.xpander.ai"
+            href="https://app.xpander.ai/?utm=slack"
             target="_blank"
             rel="noopener noreferrer" 
             className="text-sm font-medium px-4 py-2 rounded-md bg-white text-purple-600 hover:bg-gray-100 transition-colors whitespace-nowrap shadow-md"
           >
-            Deploy Agent
+            Console Access
           </a>
         </div>
       </div>

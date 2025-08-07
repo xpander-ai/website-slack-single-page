@@ -206,7 +206,7 @@ export default function DeveloperFeaturesSection() {
                 rel="noopener noreferrer"
                 className="inline-block"
               >
-                <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-150 text-lg">
+                <button className="bg-[#753cff] hover:bg-[#6433e0] text-white font-semibold px-8 py-3 rounded-lg transition-all duration-150 text-lg">
                   Login to xpander.ai Platform
                 </button>
               </a>

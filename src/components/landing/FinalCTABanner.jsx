@@ -7,7 +7,7 @@ import { Calendar } from 'lucide-react';
 export default function FinalCTABanner() {
 
   const handleSlackEnableClick = () => {
-     window.open('https://app.xpander.ai/slack_agents/new?templateId=072bb326-d45b-4995-a8e0-458e1e4b6d20', '_blank'); 
+     window.open('https://app.xpander.ai/slack_agents/new/?utm=slack&templateId=072bb326-d45b-4995-a8e0-458e1e4b6d20', '_blank'); 
   };
 
   const handleDemoClick = () => {
